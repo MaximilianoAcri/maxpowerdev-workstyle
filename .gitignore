@@ -1,0 +1,20 @@
+# Secrets - NO subir a GitHub
+*.env
+*.env.local
+*.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Temporal
+tmp/
+temp/
+*.tmp
