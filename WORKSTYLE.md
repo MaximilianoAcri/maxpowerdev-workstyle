@@ -1,11 +1,11 @@
 # MaxPowerDev Work Style
 
-Configuración estándar para proyectos. Basada en la forma de trabajar de MaxPowerDev (Martinelli + proyectos).
+Configuración personalizada para OpenCode + Engram. Mi forma personal de trabajar con AI agents.
 
 ## Quick Start
 
 ```bash
-# 1. Copiar este archivo a tu home
+# Copiar a tu config de OpenCode
 cp WORKSTYLE.md ~/.opencode/WORKSTYLE.md
 ```
 
@@ -13,48 +13,38 @@ cp WORKSTYLE.md ~/.opencode/WORKSTYLE.md
 
 | Herramienta | Propósito |
 |------------|----------|
-| **OpenCode** | Agente principal de desarrollo |
-| **Engram** | Memoria persistente |
-| **80+ Skills** | Patrones de frameworks |
+| **OpenCode** | Agente de desarrollo principal |
+| **Engram** | Memoria persistente automática |
+| **80+ Skills** | Patrones para frameworks |
 
 ## Reglas de Trabajo
 
-### Antes de hacer cambios significativos
-- ✅ Mostrar propuesta primero al usuario
-- ✅ Esperar aprobación antes de ejecutar
+### Antes de ejecutar cambios significativos
+- ✅ Mostrar propuesta primero
+- ✅ Esperar aprobación
 - ✅ Documentar decisiones en memoria
 
-### Tipos de cambios
+### Por tipo de cambio
 | Tipo | Acción |
 |------|--------|
 | Bug simple | Corregir y verificar |
-| Feature simple | Mostrar propuesta, esperar OK |
-| Feature compleja | Considerar SDD workflow |
+| Feature | Mostrar propuesta, esperar OK |
+| Complejo | Usar SDD workflow |
 
 ### Cuándo usar SDD
 - Proyectos nuevos o complejos
 - Múltiples features interrelated
 - Arquitectura por definir
 
-## Comandos
+## Memoria - Cuándo guardar
 
-```bash
-# Guardar memoria
-mem_save --title "Fix X" --type bugfix --content "Qué, por qué, dónde"
-
-# Ver memoria
-mem_context
-```
-
-## Memoria - Qué guardar
-
-- Arquitectura/decisión de diseño
+- Arquitectura / decisión de diseño
 - Bug fix (con root cause)
 - Convención establecida
 - Descubrimiento no obvious
 - Preferencia del usuario
 
-## Formato
+## Formato de memoria
 
 ```
 **What**: Qué se hizo
@@ -63,12 +53,26 @@ mem_context
 **Learned**: Gotchas, edge cases
 ```
 
-## Skills Principales
+## Skills principales
 
-- Next.js 15, React 19, Tailwind 4
-- Prisma, Supabase
-- Playwright, Vitest
-- GitHub Actions, Docker
+- **Frontend**: Next.js 15, React 19, React Native, Tailwind 4, Angular
+- **Backend**: Prisma, Supabase, Django DRF, Deno
+- **Testing**: Playwright, Vitest, Pytest
+- **DevOps**: GitHub Actions, GCP, Cron, n8n
+- **AI**: Vercel AI SDK 5, MCP Builder
+
+## Comandos útiles
+
+```bash
+# Guardar en memoria
+mem_save --title "Fix X" --type bugfix --content "Qué, por qué, dónde"
+
+# Ver contexto reciente
+mem_context
+
+# Buscar en memoria
+mem_search "query"
+```
 
 ---
 
