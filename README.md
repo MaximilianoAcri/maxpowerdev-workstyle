@@ -1,9 +1,21 @@
 # MaxPowerDev Work Style
 
-Configuración para proyectos usando OpenCode, Engram y más de 80 skills.
+Configuración personalizada para trabajar con AI agents (OpenCode + Engram) en cualquier proyecto. Más de 80 skills para desarrollo web, mobile, DevOps y más.
 
 ![OpenCode](https://img.shields.io/badge/OpenCode-v1.3.17-blue)
 ![Engram](https://img.shields.io/badge/Engram-persistent-green)
+![Skills](https://img.shields.io/badge/Skills-80+-orange)
+
+## ¿Para qué sirve?
+
+Si trabajás con AI coding assistants (OpenCode, Claude, Cursor, etc.), esta configuración hace que:
+
+- 🤖 El AI **pregunte antes de hacer cambios importantes** (nada de committed sin aviso)
+- 🧠 **Guarde automáticamente** decisiones arquitectura, bugs fixados, y aprendizajes en memoria persistente
+- 🛠 Tengas los **mismos skills** en todos tus proyectos (Next.js, React, Angular, Prisma, etc.)
+- 📋 Se aplique tu **guía de trabajo** en cada sesión
+
+En síntesis: un setup personalizable para que el AI trabaje como vos querés.
 
 ## Quick Install
 
@@ -15,50 +27,60 @@ curl -sL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/mai
 cp WORKSTYLE.md ~/.opencode/WORKSTYLE.md
 ```
 
-## Features
-
-- ✅ Configuración de OpenCode
-- 📝 Reglas de trabajo
-- 🧠 Sistema de memoria (Engram)
-- 🛠 80+ Skills para frameworks
-- 📋 Guía de contribución
-
 ## Requisitos
 
-- OpenCode instalado (`brew install opencode`)
+- [OpenCode](https://opencode.ai) instalado: `brew install opencode`
 - Git
+
+## Features
+
+| Feature | Descripción |
+|---------|-------------|
+| ⚙️ OpenCode Config | WORKSTYLE.md con reglas de comportamiento |
+| 🧠 Engram Memory | Persistencia automático de decisiones |
+| 🛠 80+ Skills | Para frameworks, testing, DevOps, AI |
+| 📋 Contribución | Guidelines para agregar skills |
 
 ## Estructura
 
 ```
 maxpowerdev-workstyle/
-├── WORKSTYLE.md       # Config principal
+├── WORKSTYLE.md       # Config principal (reglas AI)
 ├── README.md          # Este archivo
-├── install.sh        # Script de instalación
-└── .gitignore       # Para ignorar secretos
+├── install.sh         # Script de instalación
+└── .gitignore        # Para ignorar secretos
 ```
-
-## Para qué sirve?
-
-Si trabajás en proyectos con AI y querés:
-- Que el AI pregunte antes de hacer cambios importantes
-- Guardar automáticamente decisiones en memoria
-- Tener los mismos skills en todos tus proyectos
-- Compartir tu forma de trabajar con otros
 
 ## Skills disponibles
 
-| Categoría | Skills |
-|-----------|--------|
-| Frontend | nextjs-15, react-19, tailwind-4, angular-core |
-| Backend | prisma, supabase, django-drf |
-| Testing | playwright, vitest, pytest |
-| DevOps | github-actions, docker, cron |
-| AI | ai-sdk-5, mcp-builder |
+### Frontend
+`nextjs-15`, `react-19`, `react-native`, `tailwind-4`, `angular-core`, `angular-architecture`
+
+### Backend & Database
+`prisma`, `supabase`, `django-drf`, `deno`
+
+### Testing
+`playwright`, `vitest`, `pytest`, `go-testing`
+
+### DevOps & Cloud
+`github-actions`, `gcp`, `cron`, `n8n`
+
+### AI & Automation
+`ai-sdk-5`, `mcp-builder`, `webhooks`, `make`
+
+### Observability
+`prometheus`, `grafana`, `sentry`, `elk`
+
+## Cómo funciona
+
+1. **Install**: Copiá `WORKSTYLE.md` a tu config de OpenCode
+2. **Iniciá una sesión**: El AI carga tu configuración automáticamente
+3. **Trabajá**: Cada decisión importante se guarda en memoria
+4. **Seguí**: Engram persaistirá lo aprendido entre sesiones
 
 ## Contributing
 
-¿Querés agregar algo? Hacé un PR o abrí un issue!
+¿Querés agregar skills o改进 la config? Issues y PRs bienvenidos.
 
 ## Inspirado en
 
