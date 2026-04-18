@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MaxPowerDev Work Style | Tu AI, tus reglas</title>
+  <meta name="description" content="Configuración personalizable para AI coding agents. OpenCode + Engram + 80+ Skills.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg: #050507;
+      --surface: #0c0c0f;
+      --surface-elevated: #141418;
+      --surface-hover: #1a1a1f;
+      --border: #27272a;
+      --border-light: #3f3f46;
+      --text: #fafafa;
+      --text-dim: #a1a1aa;
+      --text-dimmer: #71717a;
+      --cyan: #22d3ee;
+      --cyan-glow: #22d3ee44;
+      --cyan-dim: #0e7490;
+      --violet: #a78bfa;
+      --violet-glow: #a78bfa44;
+      --pink: #f472b6;
+      --emerald: #34d399;
+      --gradient-main: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #f472b6 100%);
+      --gradient-card: linear-gradient(145deg, #141418 0%, #0c0c0f 100%);
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Background effects */
+    .bg-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    
+    .bg-gradient {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.4;
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    .bg-gradient-1 {
+      top: -20%;
+      left: -10%;
+      background: var(--cyan);
+    }
+    
+    .bg-gradient-2 {
+      bottom: -20%;
+      right: -10%;
+      background: var(--violet);
+      animation-delay: -10s;
+    }
+    
+    .bg-gradient-3 {
+      top: 40%;
+      left: 50%;
+      background: var(--pink);
+      opacity: 0.2;
+      animation-delay: -5s;
+    }
+    
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.3;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+    
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem 4rem;
+    }
+    
+    /* Header / Nav */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4rem;
+      animation: slideDown 0.6s ease-out;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+    
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gradient-main);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 0 20px var(--cyan-glow);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      transition: color 0.2s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--text);
+    }
+    
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+    
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      padding: 0.375rem 1rem 0.375rem 0.375rem;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+      animation: slideDown 0.6s ease-out 0.1s both;
+    }
+    
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--emerald);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+    
+    h1 {
+      font-size: clamp(2.75rem, 8vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      animation: slideUp 0.6s ease-out 0.15s both;
+    }
+    
+    h1 .gradient {
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-dim);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      animation: slideUp 0.6s ease-out 0.2s both;
+    }
+    
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: slideUp 0.6s ease-out 0.25s both;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+    
+    .btn-primary {
+      background: var(--gradient-main);
+      color: #000;
+      box-shadow: 0 4px 24px var(--cyan-glow);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 40px var(--cyan-glow);
+    }
+    
+    .btn-secondary {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-light);
+      transform: translateY(-2px);
+    }
+    
+    /* Install block */
+    .install-block {
+      background: var(--gradient-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 5rem;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      animation: slideUp 0.6s ease-out 0.3s both;
+    }
+    
+    .install-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gradient-main);
+      opacity: 0.5;
+    }
+    
+    .install-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .install-label {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .install-label span {
+      color: var(--cyan);
+    }
+    
+    .copy-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.8125rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    
+    .copy-btn:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    
+    .copy-btn.copied {
+      background: var(--cyan);
+      border-color: var(--cyan);
+      color: #000;
+    }
+    
+    .install-command {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      color: var(--text);
+      word-break: break-all;
+      line-height: 1.8;
+    }
+    
+    .install-command .prompt {
+      color: var(--emerald);
+    }
+    
+    .install-command .cmd {
+      color: var(--cyan);
+    }
+    
+    /* Feature cards */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 5rem;
+    }
+    
+    .feature-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.75rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 1px;
+      background: var(--gradient-main);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: transparent;
+    }
+    
+    .feature-card:hover::after {
+      opacity: 1;
+    }
+    
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 1.25rem;
+    }
+    
+    .feature-card:nth-child(1) .feature-icon { background: linear-gradient(135deg, #22d3ee22, #0e749011); }
+    .feature-card:nth-child(2) .feature-icon { background: linear-gradient(135deg, #a78bfa22, #7c3aed11); }
+    .feature-card:nth-child(3) .feature-icon { background: linear-gradient(135deg, #34d39922, #05966911); }
+    .feature-card:nth-child(4) .feature-icon { background: linear-gradient(135deg, #f472b622, #db277711); }
+    
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .feature-card p {
+      font-size: 0.9375rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+    
+    /* Skills section */
+    .skills-section {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+    
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+    
+    .section-header h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+    
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+      justify-content: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .skill-tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      font-size: 0.875rem;
+      color: var(--text-dim);
+      transition: all 0.2s;
+    }
+    
+    .skill-tag:hover {
+      border-color: var(--cyan);
+      color: var(--text);
+      transform: scale(1.05);
+    }
+    
+    .skill-tag.frontend { border-color: var(--cyan); }
+    .skill-tag.backend { border-color: var(--emerald); }
+    .skill-tag.devops { border-color: var(--violet); }
+    .skill-tag.ai { border-color: var(--pink); }
+    
+    /* How it works */
+    .how-it-works {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      margin-bottom: 5rem;
+    }
+    
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: left;
+    }
+    
+    .step {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .step-number {
+      width: 36px;
+      height: 36px;
+      background: var(--gradient-main);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #000;
+      flex-shrink: 0;
+    }
+    
+    .step-content h4 {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .step-content p {
+      font-size: 0.875rem;
+      color: var(--text-dim);
+    }
+    
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 4rem;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--text-dim);
+      margin-top: 0.25rem;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      transition: color 0.2s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--text);
+    }
+    
+    footer p {
+      color: var(--text-dimmer);
+      font-size: 0.8125rem;
+    }
+    
+    /* Animations */
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 640px) {
+      .nav {
+        margin-bottom: 3rem;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .stats-bar {
+        gap: 2.5rem;
+      }
+      
+      .stat-value {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-canvas">
+    <div class="bg-gradient bg-gradient-1"></div>
+    <div class="bg-gradient bg-gradient-2"></div>
+    <div class="bg-gradient bg-gradient-3"></div>
+    <div class="bg-grid"></div>
+  </div>
+  
+  <div class="container">
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-icon">⚡</div>
+        <span>MaxPowerDev</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#skills">Skills</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle">GitHub</a>
+      </div>
+    </nav>
+    
+    <header class="hero">
+      <div class="badge-pill">
+        <div class="badge-dot"></div>
+        <span>OpenSource + Libre</span>
+      </div>
+      
+      <h1>Tu AI coding assistant, <span class="gradient">tus reglas</span></h1>
+      
+      <p>
+        Configurá tu AI para queTrabaje como vos querés. Que pregunte antes de tocar código, 
+        que guarde decisiones en memoria, y que use tus skills favoritos en cada proyecto.
+      </p>
+      
+      <div class="cta-group">
+        <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle" class="btn btn-primary">
+          ⭐ Star on GitHub
+        </a>
+        <a href="#install" class="btn btn-secondary">
+          🚀 Install Now
+        </a>
+      </div>
+    </header>
+    
+    <div class="install-block" id="install">
+      <div class="install-header">
+        <div class="install-label">⚡ <span>Copy & Paste</span></div>
+        <button class="copy-btn" onclick="copyCommand()">
+          📋 Copiar
+        </button>
+      </div>
+      <div class="install-command">
+        <span class="prompt">$</span> <span class="cmd">curl -sL</span> https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash
+      </div>
+    </div>
+    
+    <section class="features-grid" id="features">
+      <article class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>Pregunta antes</h3>
+        <p>El AI te muestra lo que va a hacer y espera tu aprobación. Nada de cambios inesperados.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3>Memoria automática</h3>
+        <p>Arquitectura, bugs corregidos, decisiones. Todo se guarda solo y persiste entre sesiones.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">🛠</div>
+        <h3>80+ Skills</h3>
+        <p>Patrones probados para Next.js, React, Angular, Prisma, Playwright, y más. Listos para usar.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Tu guía de trabajo</h3>
+        <p>Se aplica automáticamente en cada sesión. Tu forma de trabajar, replicada en todo proyecto.</p>
+      </article>
+    </section>
+    
+    <section class="skills-section" id="skills">
+      <div class="section-header">
+        <h2>🛠 Skills disponibles</h2>
+      </div>
+      <div class="skills-cloud">
+        <span class="skill-tag frontend">Next.js 15</span>
+        <span class="skill-tag frontend">React 19</span>
+        <span class="skill-tag frontend">React Native</span>
+        <span class="skill-tag frontend">Angular</span>
+        <span class="skill-tag frontend">Vue 3</span>
+        <span class="skill-tag frontend">Tailwind 4</span>
+        <span class="skill-tag backend">Prisma</span>
+        <span class="skill-tag backend">Supabase</span>
+        <span class="skill-tag backend">Django</span>
+        <span class="skill-tag backend">Deno</span>
+        <span class="skill-tag backend">Spring Boot</span>
+        <span class="skill-tag devops">GitHub Actions</span>
+        <span class="skill-tag devops">Docker</span>
+        <span class="skill-tag devops">GCP</span>
+        <span class="skill-tag devops">AWS</span>
+        <span class="skill-tag devops">Vercel</span>
+        <span class="skill-tag ai">Vercel AI SDK</span>
+        <span class="skill-tag ai">MCP Builder</span>
+        <span class="skill-tag ai">OpenAI</span>
+        <span class="skill-tag ai">LangChain</span>
+        <span class="skill-tag frontend">Playwright</span>
+        <span class="skill-tag frontend">Vitest</span>
+        <span class="skill-tag backend">Pytest</span>
+      </div>
+    </section>
+    
+    <section class="how-it-works" id="how-it-works">
+      <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+        <h2>⚡ Cómo funciona</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Install</h4>
+            <p>Corré el script y se copia solo</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Usá</h4>
+            <p>El AI carga tu config automáticamente</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Trabajá</h4>
+            <p>Cada decisión se guarda en memoria</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Seguí</h4>
+            <p>Todo persiste entre sesiones</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-value">80+</div>
+        <div class="stat-label">Skills</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">🧠</div>
+        <div class="stat-label">Memoria</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">∞</div>
+        <div class="stat-label">Proyectos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">0</div>
+        <div class="stat-label">Costo</div>
+      </div>
+    </section>
+    
+    <footer>
+      <div class="footer-links">
+        <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle">GitHub</a>
+        <a href="https://opencode.ai">OpenCode</a>
+        <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle/issues">Issues</a>
+        <a href="https://twitter.com">Twitter</a>
+      </div>
+      <p>Hecho con ❤️ por MaxPowerDev</p>
+    </footer>
+  </div>
+  
+  <script>
+    function copyCommand() {
+      const command = 'curl -sL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash';
+      navigator.clipboard.writeText(command).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = '✓ Copiado!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = '📋 Copiar';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
