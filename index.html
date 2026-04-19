@@ -3,16 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MaxPowerDev WorkStyle | Tu AI Stack Configurado</title>
-  <meta name="description" content="One command. Any agent. Any OS. Tu AI stack configurado con memoria, 100+ skills, y todo listo para laburar.">
+  <title>MaxPowerDev WorkStyle | One Command. Any Agent. Any OS.</title>
+  <meta name="description" content="One command. Any agent. Any OS. Tu AI Stack configurado con memoria, 100+ skills, y todo listo para laburar.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
     :root {
       --bg: #030304;
       --surface: #09090b;
@@ -33,423 +31,173 @@
       --gradient-card: linear-gradient(145deg, #111114 0%, #09090b 100%);
     }
     
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     
     body {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
       line-height: 1.6;
     }
     
-    .bg-canvas {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
+    .bg-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
     
     .bg-gradient {
       position: absolute;
-      width: 900px;
-      height: 900px;
+      width: 1000px;
+      height: 1000px;
       border-radius: 50%;
-      filter: blur(140px);
-      opacity: 0.35;
-      animation: float 25s ease-in-out infinite;
+      filter: blur(150px);
+      opacity: 0.3;
+      animation: float 30s ease-in-out infinite;
     }
     
-    .bg-gradient-1 { top: -25%; left: -15%; background: var(--cyan); }
-    .bg-gradient-2 { bottom: -25%; right: -15%; background: var(--violet); animation-delay: -12s; }
-    .bg-gradient-3 { top: 50%; left: 50%; background: var(--pink); opacity: 0.15; animation-delay: -6s; }
+    .bg-gradient-1 { top: -30%; left: -20%; background: var(--cyan); }
+    .bg-gradient-2 { bottom: -30%; right: -20%; background: var(--violet); animation-delay: -15s; }
+    .bg-gradient-3 { top: 40%; left: 60%; background: var(--pink); opacity: 0.15; animation-delay: -7s; }
     
     .bg-grid {
       position: absolute;
       inset: 0;
       background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 70px 70px;
+      background-size: 80px 80px;
       opacity: 0.15;
       mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
     }
     
     @keyframes float {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(40px, -40px) scale(1.08); }
-      66% { transform: translate(-30px, 30px) scale(0.95); }
+      33% { transform: translate(50px, -50px) scale(1.05); }
+      66% { transform: translate(-40px, 40px) scale(0.98); }
     }
     
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 1024px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem 5rem;
-    }
+    .container { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
     
-    /* Nav */
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 3rem;
-    }
+    .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3.5rem; }
     
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-weight: 600;
-      font-size: 1.25rem;
-    }
+    .logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 600; font-size: 1.25rem; }
     
     .logo-icon {
-      width: 40px;
-      height: 40px;
+      width: 42px; height: 42px;
       background: var(--gradient-main);
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      box-shadow: 0 0 30px var(--cyan-glow);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; box-shadow: 0 0 35px var(--cyan-glow);
     }
     
     .nav-links { display: flex; gap: 2rem; }
     .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.9375rem; }
     .nav-links a:hover { color: var(--text); }
     
-    /* Badges */
-    .badges {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
+    .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 5rem; }
+    .hero-content { max-width: 520px; }
+    
+    .badges { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-bottom: 1.5rem; }
     
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.375rem;
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      padding: 0.375rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      color: var(--text-dim);
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      background: var(--surface-elevated); border: 1px solid var(--border);
+      padding: 0.375rem 0.75rem; border-radius: 9999px;
+      font-size: 0.75rem; color: var(--text-dim);
     }
     
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--emerald);
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-    }
+    .badge-dot { width: 6px; height: 6px; background: var(--emerald); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
+    h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 1.25rem; }
+    h1 .gradient { background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     
-    /* Hero */
-    .hero { text-align: center; margin-bottom: 3.5rem; }
+    .hero p { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 2rem; line-height: 1.7; }
     
-    h1 {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      margin-bottom: 1.25rem;
-    }
-    
-    h1 .gradient {
-      background: var(--gradient-main);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--text-dim);
-      max-width: 580px;
-      margin: 0 auto 2rem;
-    }
-    
-    .cta-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
     
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.875rem 1.5rem;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: all 0.25s;
-      border: none;
-      font-family: inherit;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.875rem 1.5rem; border-radius: 12px;
+      font-weight: 600; font-size: 1rem; text-decoration: none;
+      transition: all 0.25s; border: none; font-family: inherit;
     }
     
-    .btn-primary {
+    .btn-primary { background: var(--gradient-main); color: #000; box-shadow: 0 4px 28px var(--cyan-glow); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 40px var(--cyan-glow); }
+    .btn-secondary { background: var(--surface-elevated); border: 1px solid var(--border); color: var(--text); }
+    .btn-secondary:hover { background: var(--surface-hover); border-color: var(--border-light); }
+    
+    .hero-image { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    
+    .hero-image img {
+      width: 300px; height: 300px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 0 60px var(--cyan-glow);
+      border: 3px solid var(--surface-elevated);
+    }
+    
+    .hero-image::before {
+      content: ''; position: absolute; inset: -30px;
       background: var(--gradient-main);
-      color: #000;
-      box-shadow: 0 4px 24px var(--cyan-glow);
+      border-radius: 40px;
+      opacity: 0.2; filter: blur(50px); z-index: -1;
     }
     
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 32px var(--cyan-glow);
-    }
+    .founder-label { margin-top: 1rem; font-size: 0.875rem; color: var(--text-dimmer); text-align: center; }
     
-    .btn-secondary {
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-    
-    .btn-secondary:hover {
-      background: var(--surface-hover);
-      border-color: var(--border-light);
-    }
-    
-    /* Install Block */
-    .install-block {
-      background: var(--gradient-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 1.75rem;
-      margin-bottom: 4rem;
-      text-align: center;
-    }
-    
-    .install-label {
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.75rem;
-    }
-    
+    .install-block { background: var(--gradient-card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; margin-bottom: 4rem; text-align: center; }
+    .install-label { font-size: 0.8125rem; font-weight: 500; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
     .install-label span { color: var(--cyan); }
-    
-    .install-command {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.125rem;
-      background: var(--surface);
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      display: inline-block;
-      word-break: break-all;
-    }
-    
+    .install-command { font-family: 'JetBrains Mono', monospace; font-size: 1.125rem; background: var(--surface); padding: 1.25rem 1.75rem; border-radius: 14px; display: inline-block; }
     .install-command .prompt { color: var(--emerald); }
     .install-command .cmd { color: var(--cyan); }
+    .install-note { margin-top: 0.875rem; font-size: 0.8125rem; color: var(--text-dimmer); }
     
-    .install-note {
-      margin-top: 0.75rem;
-      font-size: 0.8125rem;
-      color: var(--text-dimmer);
-    }
+    .section-title { text-align: center; font-size: 1.75rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .section-subtitle { text-align: center; color: var(--text-dim); margin-bottom: 2.5rem; }
     
-    /* Section Titles */
-    .section-title {
-      text-align: center;
-      font-size: 1.75rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
+    .agents-section { margin-bottom: 5rem; }
+    .agents-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+    .agent-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; text-align: center; transition: all 0.3s; }
+    .agent-card:hover { transform: translateY(-6px); border-color: var(--cyan); box-shadow: 0 8px 30px var(--cyan-glow); }
+    .agent-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .agent-name { font-weight: 600; font-size: 0.9375rem; }
     
-    .section-subtitle {
-      text-align: center;
-      color: var(--text-dim);
-      margin-bottom: 2rem;
-    }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 5rem; }
+    .feature-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 18px; padding: 1.75rem; transition: all 0.3s; }
+    .feature-card:hover { border-color: var(--cyan); transform: translateY(-4px); }
+    .feature-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .feature-card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .feature-card p { font-size: 0.9375rem; color: var(--text-dim); line-height: 1.7; }
     
-    /* Agents Grid */
-    .agents-section {
-      margin-bottom: 4rem;
-    }
+    .install-methods { margin-bottom: 5rem; padding: 2.5rem; background: var(--surface-elevated); border-radius: 24px; }
+    .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+    .method-card { background: var(--surface); border-radius: 14px; padding: 1.5rem; }
+    .method-card h4 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.625rem; color: var(--cyan); }
+    .method-card code { font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; color: var(--text-dim); word-break: break-all; display: block; }
     
-    .agents-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 0.875rem;
-    }
+    .skills-section { margin-bottom: 5rem; padding: 2.5rem; background: var(--surface-elevated); border-radius: 24px; }
+    .skills-cloud { display: flex; flex-wrap: wrap; gap: 0.625rem; justify-content: center; }
+    .skill-tag { background: var(--surface); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 10px; font-size: 0.8125rem; color: var(--text-dim); }
+    .skill-tag:hover { border-color: var(--cyan); color: var(--text); }
     
-    .agent-card {
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.25rem;
-      text-align: center;
-      transition: all 0.25s;
-    }
+    .stats-bar { display: flex; justify-content: center; gap: 3.5rem; flex-wrap: wrap; padding: 2.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 4rem; }
+    .stat-item { text-align: center; }
+    .stat-value { font-size: 2.5rem; font-weight: 700; background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-label { font-size: 0.875rem; color: var(--text-dim); margin-top: 0.25rem; }
     
-    .agent-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--cyan);
-    }
+    footer { text-align: center; padding-top: 2rem; }
+    .footer-links { display: flex; justify-content: center; gap: 1.75rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: var(--text-dim); text-decoration: none; font-size: 0.9375rem; }
+    .footer-links a:hover { color: var(--text); }
+    footer p { color: var(--text-dimmer); font-size: 0.8125rem; }
     
-    .agent-icon {
-      font-size: 1.75rem;
-      margin-bottom: 0.375rem;
-    }
-    
-    .agent-name {
-      font-weight: 600;
-      font-size: 0.875rem;
-    }
-    
-    /* Features */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
-      margin-bottom: 4rem;
-    }
-    
-    .feature-card {
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-    }
-    
-    .feature-icon {
-      font-size: 1.75rem;
-      margin-bottom: 0.75rem;
-    }
-    
-    .feature-card h3 {
-      font-size: 1.125rem;
-      font-weight: 600;
-      margin-bottom: 0.375rem;
-    }
-    
-    .feature-card p {
-      font-size: 0.875rem;
-      color: var(--text-dim);
-    }
-    
-    /* Install Methods */
-    .install-methods {
-      margin-bottom: 4rem;
-      padding: 2rem;
-      background: var(--surface-elevated);
-      border-radius: 20px;
-    }
-    
-    .method-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    
-    .method-card {
-      background: var(--surface);
-      border-radius: 12px;
-      padding: 1.25rem;
-    }
-    
-    .method-card h4 {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--cyan);
-    }
-    
-    .method-card code {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8125rem;
-      color: var(--text-dim);
-      word-break: break-all;
-    }
-    
-    /* Skills Cloud */
-    .skills-section {
-      margin-bottom: 4rem;
-      padding: 2rem;
-      background: var(--surface-elevated);
-      border-radius: 20px;
-    }
-    
-    .skills-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-    }
-    
-    .skill-tag {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 0.375rem 0.875rem;
-      border-radius: 8px;
-      font-size: 0.8125rem;
-      color: var(--text-dim);
-    }
-    
-    /* Stats */
-    .stats-bar {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-      padding: 2rem 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 3.5rem;
-    }
-    
-    .stat-value {
-      font-size: 2.25rem;
-      font-weight: 700;
-      background: var(--gradient-main);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    .stat-label {
-      font-size: 0.8125rem;
-      color: var(--text-dim);
-    }
-    
-    /* Footer */
-    footer {
-      text-align: center;
-      padding-top: 1.5rem;
-    }
-    
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .footer-links a {
-      color: var(--text-dim);
-      text-decoration: none;
-      font-size: 0.875rem;
-    }
-    
-    footer p {
-      color: var(--text-dimmer);
-      font-size: 0.75rem;
-    }
-    
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero-content { max-width: 100%; }
+      .hero-image { order: -1; margin-bottom: 1rem; }
+      .hero-image img { width: 220px; height: 220px; }
       .nav-links { display: none; }
-      .badges { flex-wrap: wrap; }
+      .stats-bar { gap: 2rem; }
       .install-command { font-size: 0.875rem; }
     }
   </style>
@@ -472,45 +220,42 @@
         <a href="#quick-start">Quick Start</a>
         <a href="#agents">Agents</a>
         <a href="#features">Features</a>
+        <a href="#install">Install</a>
         <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle">GitHub</a>
       </div>
     </nav>
     
     <header class="hero">
-      <div class="badges">
-        <div class="badge">
-          <div class="badge-dot"></div>
-          OpenSource
+      <div class="hero-content">
+        <div class="badges">
+          <div class="badge"><div class="badge-dot"></div>OpenSource</div>
+          <div class="badge">Any OS</div>
+          <div class="badge">Any Agent</div>
+          <div class="badge">100+ Skills</div>
         </div>
-        <div class="badge">Any OS</div>
-        <div class="badge">Any Agent</div>
-        <div class="badge">100+ Skills</div>
+        
+        <h1>Tu AI Stack,<br><span class="gradient">Configurado y Listo</span></h1>
+        
+        <p>
+          <strong>No es un installer de agents.</strong> Es un <strong>ecosistema configurador</strong> -- toma cualquier AI agent que usés y lo supercarga con memoria persistente, skills curados, y flujos de trabajo definidos.
+        </p>
+        
+        <div class="cta-group">
+          <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle" class="btn btn-primary">⭐ Star on GitHub</a>
+          <a href="#quick-start" class="btn btn-secondary">⚡ Install Now</a>
+        </div>
       </div>
       
-      <h1>Tu AI Stack,<br><span class="gradient">Configurado y Listo</span></h1>
-      
-      <p>
-        <strong>No es un installer de agents.</strong> Es un <strong>ecosistema configurador</strong> -- toma cualquier AI agent que usés y lo supercarga con memoria persistente, skills curados, y flujos de trabajo definidos.
-      </p>
-      
-      <div class="cta-group">
-        <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle" class="btn btn-primary">
-          ⭐ Star on GitHub
-        </a>
-        <a href="#quick-start" class="btn btn-secondary">
-          ⚡ Install Now
-        </a>
+      <div class="hero-image">
+        <img src="maxsetup.png" alt="Maximiliano Acri - MaxPowerDev">
+        <div class="founder-label">Maximiliano Acri</div>
       </div>
     </header>
     
     <div class="install-block" id="quick-start">
-      <div class="install-label">⚡ <span>Quick Install</span> - macOS / Linux</div>
-      <div class="install-command">
-        <span class="prompt">$</span> <span class="cmd">curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</span>
-      </div>
-      <div class="install-note">
-        Windows? Usá WSL o el comando de abajo ↓
-      </div>
+      <div class="install-label">⚡ <span>Quick Install</span> - macOS / Linux / WSL</div>
+      <div class="install-command"><span class="prompt">$</span> <span class="cmd">curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</span></div>
+      <div class="install-note">Windows? Usá WSL o descargá el install.sh del repo.</div>
     </div>
     
     <section class="agents-section" id="agents">
@@ -518,85 +263,26 @@
       <p class="section-subtitle">Usá el que ya tenés. Todos funcionan con esta config.</p>
       
       <div class="agents-grid">
-        <div class="agent-card">
-          <div class="agent-icon">🔵</div>
-          <div class="agent-name">Claude Code</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon">⚡</div>
-          <div class="agent-name">OpenCode</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon">🌐</div>
-          <div class="agent-name">Gemini CLI</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon">💻</div>
-          <div class="agent-name">Cursor</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon">🌀</div>
-          <div class="agent-name">Windsurf</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon">📦</div>
-          <div class="agent-name">Codex</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon">🛸</div>
-          <div class="agent-name">VS Copilot</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon">🚀</div>
-          <div class="agent-name">Kiro IDE</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon">🐳</div>
-          <div class="agent-name">Qwen</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon">🎯</div>
-          <div class="agent-name">Antigravity</div>
-        </div>
+        <div class="agent-card"><div class="agent-icon">🔵</div><div class="agent-name">Claude Code</div></div>
+        <div class="agent-card"><div class="agent-icon">⚡</div><div class="agent-name">OpenCode</div></div>
+        <div class="agent-card"><div class="agent-icon">🌐</div><div class="agent-name">Gemini CLI</div></div>
+        <div class="agent-card"><div class="agent-icon">💻</div><div class="agent-name">Cursor</div></div>
+        <div class="agent-card"><div class="agent-icon">🌀</div><div class="agent-name">Windsurf</div></div>
+        <div class="agent-card"><div class="agent-icon">📦</div><div class="agent-name">Codex</div></div>
+        <div class="agent-card"><div class="agent-icon">🛸</div><div class="agent-name">VS Copilot</div></div>
+        <div class="agent-card"><div class="agent-icon">🚀</div><div class="agent-name">Kiro IDE</div></div>
+        <div class="agent-card"><div class="agent-icon">🐳</div><div class="agent-name">Qwen</div></div>
+        <div class="agent-card"><div class="agent-icon">🎯</div><div class="agent-name">Antigravity</div></div>
       </div>
     </section>
     
     <section class="features-grid" id="features">
-      <article class="feature-card">
-        <div class="feature-icon">🧠</div>
-        <h3>Memoria Persistente</h3>
-        <p>Tu agent recuerda decisiones, bugs y contexto entre sesiones. No hacés nada, simplemente funciona.</p>
-      </article>
-      
-      <article class="feature-card">
-        <div class="feature-icon">🛠</div>
-        <h3>100+ Skills</h3>
-        <p>Patterns curados para React, Angular, Next.js, Prisma, Playwright y más.</p>
-      </article>
-      
-      <article class="feature-card">
-        <div class="feature-icon">📋</div>
-        <h3>Tu Guía de Trabajo</h3>
-        <p>Se aplica automáticamente. Tu forma de laburar, replicada en cada proyecto.</p>
-      </article>
-      
-      <article class="feature-card">
-        <div class="feature-icon">🔄</div>
-        <h3>Flujo SDD</h3>
-        <p>Spec-Driven Development: Explore → Spec → Design → Apply → Verify.</p>
-      </article>
-      
-      <article class="feature-card">
-        <div class="feature-icon">⚛️</div>
-        <h3>Redux Toolkit</h3>
-        <p>State management para React. createSlice, RTK Query.</p>
-      </article>
-      
-      <article class="feature-card">
-        <div class="feature-icon">💜</div>
-        <h3>Gentle-AI Powered</h3>
-        <p>Con el ecosistema Gentle-AI. Lo mismo que ellos, adaptado por MaxPowerDev.</p>
-      </article>
+      <article class="feature-card"><div class="feature-icon">🧠</div><h3>Memoria Persistente</h3><p>Tu agent recuerda decisiones, bugs y contexto entre sesiones. Sin hacer nada, simplemente funciona.</p></article>
+      <article class="feature-card"><div class="feature-icon">🛠</div><h3>100+ Skills</h3><p>Patterns curados para React, Angular, Next.js, Prisma, Playwright y más.</p></article>
+      <article class="feature-card"><div class="feature-icon">📋</div><h3>Tu Guía de Trabajo</h3><p>Se aplica automáticamente. Tu forma de laburar, replicada en cada proyecto.</p></article>
+      <article class="feature-card"><div class="feature-icon">🔄</div><h3>Flujo SDD</h3><p>Spec-Driven Development: Explore → Spec → Design → Apply → Verify.</p></article>
+      <article class="feature-card"><div class="feature-icon">⚛️</div><h3>Redux Toolkit</h3><p>State management para React. createSlice, RTK Query.</p></article>
+      <article class="feature-card"><div class="feature-icon">💜</div><h3>Gentle-AI Powered</h3><p>Con el ecosistema Gentle-AI. Lo mismo que ellos, adaptado por MaxPowerDev.</p></article>
     </section>
     
     <section class="install-methods" id="install">
@@ -604,32 +290,16 @@
       <p class="section-subtitle">Funciona en cualquier terminal, cualquier entorno</p>
       
       <div class="method-grid">
-        <div class="method-card">
-          <h4>macOS / Linux</h4>
-          <code>curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</code>
-        </div>
-        
-        <div class="method-card">
-          <h4>Windows (WSL)</h4>
-          <code>curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</code>
-        </div>
-        
-        <div class="method-card">
-          <h4>Direct Download</h4>
-          <code>Descargar install.sh del repo y ejecutar localmente</code>
-        </div>
-        
-        <div class="method-card">
-          <h4>Git Clone</h4>
-          <code>git clone https://github.com/MaximilianoAcri/maxpowerdev-workstyle && cd maxpowerdev-workstyle && ./install.sh</code>
-        </div>
+        <div class="method-card"><h4>macOS / Linux</h4><code>curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</code></div>
+        <div class="method-card"><h4>Windows (WSL)</h4><code>curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</code></div>
+        <div class="method-card"><h4>PowerShell</h4><code>irm https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | iex</code></div>
+        <div class="method-card"><h4>Git Clone</h4><code>git clone https://github.com/MaximilianoAcri/maxpowerdev-workstyle && cd maxpowerdev-workstyle && ./install.sh</code></div>
       </div>
     </section>
     
     <section class="skills-section">
       <h2 class="section-title">🛠 Skills Disponibles</h2>
       <p class="section-subtitle">Todo lo que necesitás para laburar</p>
-      
       <div class="skills-cloud">
         <span class="skill-tag">React 19</span>
         <span class="skill-tag">Next.js 15</span>
@@ -655,30 +325,12 @@
     </section>
     
     <section class="stats-bar">
-      <div>
-        <div class="stat-value">10+</div>
-        <div class="stat-label">AI Agents</div>
-      </div>
-      <div>
-        <div class="stat-value">100+</div>
-        <div class="stat-label">Skills</div>
-      </div>
-      <div>
-        <div class="stat-value">🧠</div>
-        <div class="stat-label">Memory</div>
-      </div>
-      <div>
-        <div class="stat-value">⚛️</div>
-        <div class="stat-label">RTK</div>
-      </div>
-      <div>
-        <div class="stat-value">0</div>
-        <div class="stat-label">Costo</div>
-      </div>
-      <div>
-        <div class="stat-value">∞</div>
-        <div class="stat-label">Projects</div>
-      </div>
+      <div class="stat-item"><div class="stat-value">10+</div><div class="stat-label">AI Agents</div></div>
+      <div class="stat-item"><div class="stat-value">100+</div><div class="stat-label">Skills</div></div>
+      <div class="stat-item"><div class="stat-value">🧠</div><div class="stat-label">Memory</div></div>
+      <div class="stat-item"><div class="stat-value">⚛️</div><div class="stat-label">RTK</div></div>
+      <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Costo</div></div>
+      <div class="stat-item"><div class="stat-value">∞</div><div class="stat-label">Projects</div></div>
     </section>
     
     <footer>
