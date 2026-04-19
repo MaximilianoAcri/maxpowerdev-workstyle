@@ -3,40 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MaxPowerDev Work Style | Tu AI, tus reglas</title>
-  <meta name="description" content="Configuración personalizable para AI coding agents. OpenCode + Engram + 80+ Skills.">
+  <title>MaxPowerDev WorkStyle | Tu AI Coding Assistant, Tus Reglas</title>
+  <meta name="description" content="Setup profesional para AI coding con memoria persistente, 100+ skills especializados, RTK y flujo SDD. Tu AI, tus reglas.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     :root {
-      --bg: #050507;
-      --surface: #0c0c0f;
-      --surface-elevated: #141418;
-      --surface-hover: #1a1a1f;
+      --bg: #030304;
+      --surface: #09090b;
+      --surface-elevated: #111114;
+      --surface-hover: #18181c;
       --border: #27272a;
       --border-light: #3f3f46;
       --text: #fafafa;
       --text-dim: #a1a1aa;
       --text-dimmer: #71717a;
       --cyan: #22d3ee;
-      --cyan-glow: #22d3ee44;
+      --cyan-glow: #22d3ee33;
       --cyan-dim: #0e7490;
       --violet: #a78bfa;
-      --violet-glow: #a78bfa44;
+      --violet-glow: #a78bfa33;
       --pink: #f472b6;
       --emerald: #34d399;
+      --amber: #fbbf24;
       --gradient-main: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #f472b6 100%);
-      --gradient-card: linear-gradient(145deg, #141418 0%, #0c0c0f 100%);
+      --gradient-glow: linear-gradient(135deg, #22d3ee44 0%, #a78bfa44 50%, #f472b644 100%);
+      --gradient-card: linear-gradient(145deg, #111114 0%, #09090b 100%);
     }
     
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     
     body {
       font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -47,7 +47,8 @@
       overflow-x: hidden;
     }
     
-    /* Background effects */
+    /* BACKGROUND EFFECTS */
+    
     .bg-canvas {
       position: fixed;
       inset: 0;
@@ -58,33 +59,33 @@
     
     .bg-gradient {
       position: absolute;
-      width: 800px;
-      height: 800px;
+      width: 900px;
+      height: 900px;
       border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.4;
-      animation: float 20s ease-in-out infinite;
+      filter: blur(140px);
+      opacity: 0.35;
+      animation: float 25s ease-in-out infinite;
     }
     
     .bg-gradient-1 {
-      top: -20%;
-      left: -10%;
+      top: -25%;
+      left: -15%;
       background: var(--cyan);
     }
     
     .bg-gradient-2 {
-      bottom: -20%;
-      right: -10%;
+      bottom: -25%;
+      right: -15%;
       background: var(--violet);
-      animation-delay: -10s;
+      animation-delay: -12s;
     }
     
     .bg-gradient-3 {
-      top: 40%;
+      top: 50%;
       left: 50%;
       background: var(--pink);
-      opacity: 0.2;
-      animation-delay: -5s;
+      opacity: 0.15;
+      animation-delay: -6s;
     }
     
     .bg-grid {
@@ -93,32 +94,35 @@
       background-image: 
         linear-gradient(var(--border) 1px, transparent 1px),
         linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 60px 60px;
-      opacity: 0.3;
+      background-size: 70px 70px;
+      opacity: 0.2;
       mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
     }
     
     @keyframes float {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.05); }
-      66% { transform: translate(-20px, 20px) scale(0.95); }
+      33% { transform: translate(40px, -40px) scale(1.08); }
+      66% { transform: translate(-30px, 30px) scale(0.95); }
     }
+    
+    /* LAYOUT */
     
     .container {
       position: relative;
       z-index: 1;
-      max-width: 1024px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 5rem 1.5rem 4rem;
+      padding: 4rem 1.5rem 5rem;
     }
     
-    /* Header / Nav */
+    /* NAVIGATION */
+    
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 4rem;
-      animation: slideDown 0.6s ease-out;
+      animation: slideDown 0.7s ease-out;
     }
     
     .logo {
@@ -126,19 +130,19 @@
       align-items: center;
       gap: 0.75rem;
       font-weight: 600;
-      font-size: 1.125rem;
+      font-size: 1.25rem;
     }
     
     .logo-icon {
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       background: var(--gradient-main);
-      border-radius: 10px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      box-shadow: 0 0 20px var(--cyan-glow);
+      font-size: 20px;
+      box-shadow: 0 0 30px var(--cyan-glow);
     }
     
     .nav-links {
@@ -153,11 +157,10 @@
       transition: color 0.2s;
     }
     
-    .nav-links a:hover {
-      color: var(--text);
-    }
+    .nav-links a:hover { color: var(--text); }
     
-    /* Hero */
+    /* HERO */
+    
     .hero {
       text-align: center;
       margin-bottom: 5rem;
@@ -169,12 +172,12 @@
       gap: 0.5rem;
       background: var(--surface-elevated);
       border: 1px solid var(--border);
-      padding: 0.375rem 1rem 0.375rem 0.375rem;
+      padding: 0.4rem 1rem 0.4rem 0.4rem;
       border-radius: 9999px;
       font-size: 0.8125rem;
       color: var(--text-dim);
       margin-bottom: 1.5rem;
-      animation: slideDown 0.6s ease-out 0.1s both;
+      animation: slideDown 0.7s ease-out 0.1s both;
     }
     
     .badge-dot {
@@ -187,16 +190,16 @@
     
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.2); }
+      50% { opacity: 0.5; transform: scale(1.3); }
     }
     
     h1 {
-      font-size: clamp(2.75rem, 8vw, 4.5rem);
+      font-size: clamp(2.5rem, 9vw, 5rem);
       font-weight: 700;
       letter-spacing: -0.045em;
-      line-height: 1.1;
+      line-height: 1.05;
       margin-bottom: 1.5rem;
-      animation: slideUp 0.6s ease-out 0.15s both;
+      animation: slideUp 0.7s ease-out 0.15s both;
     }
     
     h1 .gradient {
@@ -209,9 +212,9 @@
     .hero p {
       font-size: 1.25rem;
       color: var(--text-dim);
-      max-width: 560px;
+      max-width: 600px;
       margin: 0 auto 2.5rem;
-      animation: slideUp 0.6s ease-out 0.2s both;
+      animation: slideUp 0.7s ease-out 0.2s both;
     }
     
     .cta-group {
@@ -219,14 +222,14 @@
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
-      animation: slideUp 0.6s ease-out 0.25s both;
+      animation: slideUp 0.7s ease-out 0.25s both;
     }
     
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.875rem 1.75rem;
+      padding: 0.9rem 1.75rem;
       border-radius: 14px;
       font-weight: 600;
       font-size: 1rem;
@@ -240,12 +243,12 @@
     .btn-primary {
       background: var(--gradient-main);
       color: #000;
-      box-shadow: 0 4px 24px var(--cyan-glow);
+      box-shadow: 0 4px 30px var(--cyan-glow);
     }
     
     .btn-primary:hover {
       transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 40px var(--cyan-glow);
+      box-shadow: 0 8px 50px var(--cyan-glow);
     }
     
     .btn-secondary {
@@ -260,17 +263,18 @@
       transform: translateY(-2px);
     }
     
-    /* Install block */
+    /* INSTALL BLOCK */
+    
     .install-block {
       background: var(--gradient-card);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 24px;
       padding: 2rem;
       margin-bottom: 5rem;
       text-align: left;
       position: relative;
       overflow: hidden;
-      animation: slideUp 0.6s ease-out 0.3s both;
+      animation: slideUp 0.7s ease-out 0.3s both;
     }
     
     .install-block::before {
@@ -299,9 +303,7 @@
       letter-spacing: 0.05em;
     }
     
-    .install-label span {
-      color: var(--cyan);
-    }
+    .install-label span { color: var(--cyan); }
     
     .copy-btn {
       background: var(--surface);
@@ -334,18 +336,14 @@
       line-height: 1.8;
     }
     
-    .install-command .prompt {
-      color: var(--emerald);
-    }
+    .install-command .prompt { color: var(--emerald); }
+    .install-command .cmd { color: var(--cyan); }
     
-    .install-command .cmd {
-      color: var(--cyan);
-    }
+    /* FEATURE CARDS */
     
-    /* Feature cards */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.25rem;
       margin-bottom: 5rem;
     }
@@ -380,9 +378,7 @@
       border-color: transparent;
     }
     
-    .feature-card:hover::after {
-      opacity: 1;
-    }
+    .feature-card:hover::after { opacity: 1; }
     
     .feature-icon {
       width: 52px;
@@ -399,6 +395,8 @@
     .feature-card:nth-child(2) .feature-icon { background: linear-gradient(135deg, #a78bfa22, #7c3aed11); }
     .feature-card:nth-child(3) .feature-icon { background: linear-gradient(135deg, #34d39922, #05966911); }
     .feature-card:nth-child(4) .feature-icon { background: linear-gradient(135deg, #f472b622, #db277711); }
+    .feature-card:nth-child(5) .feature-icon { background: linear-gradient(135deg, #fbbf2422, #d9770611); }
+    .feature-card:nth-child(6) .feature-icon { background: linear-gradient(135deg, #f472b622, #be185d11); }
     
     .feature-card h3 {
       font-size: 1.25rem;
@@ -412,19 +410,25 @@
       line-height: 1.7;
     }
     
-    /* Skills section */
+    /* SKILLS SECTION */
+    
     .skills-section {
       text-align: center;
       margin-bottom: 5rem;
     }
     
-    .section-header {
-      margin-bottom: 2.5rem;
-    }
+    .section-header { margin-bottom: 2.5rem; }
     
     .section-header h2 {
-      font-size: 1.75rem;
+      font-size: 2rem;
       font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .section-header p {
+      color: var(--text-dim);
+      max-width: 500px;
+      margin: 0 auto;
     }
     
     .skills-cloud {
@@ -432,16 +436,16 @@
       flex-wrap: wrap;
       gap: 0.625rem;
       justify-content: center;
-      max-width: 700px;
+      max-width: 800px;
       margin: 0 auto;
     }
     
     .skill-tag {
       background: var(--surface);
       border: 1px solid var(--border);
-      padding: 0.5rem 1rem;
+      padding: 0.55rem 1.1rem;
       border-radius: 10px;
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
       color: var(--text-dim);
       transition: all 0.2s;
     }
@@ -452,12 +456,16 @@
       transform: scale(1.05);
     }
     
-    .skill-tag.frontend { border-color: var(--cyan); }
-    .skill-tag.backend { border-color: var(--emerald); }
-    .skill-tag.devops { border-color: var(--violet); }
-    .skill-tag.ai { border-color: var(--pink); }
+    .skill-tag.frontend { border-color: #22d3ee44; }
+    .skill-tag.backend { border-color: #34d39944; }
+    .skill-tag.devops { border-color: #a78bfa44; }
+    .skill-tag.ai { border-color: #f472b644; }
+    .skill-tag.rtk { border-color: #fbbf2444; }
+    .skill-tag.sdd { border-color: #22d3ee44; }
+    .skill-tag.community { border-color: #fbbf2444; }
     
-    /* How it works */
+    /* HOW IT WORKS */
+    
     .how-it-works {
       background: var(--surface-elevated);
       border: 1px solid var(--border);
@@ -468,7 +476,7 @@
     
     .steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
       gap: 2rem;
       text-align: left;
     }
@@ -479,8 +487,8 @@
     }
     
     .step-number {
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       background: var(--gradient-main);
       border-radius: 50%;
       display: flex;
@@ -503,7 +511,8 @@
       color: var(--text-dim);
     }
     
-    /* Stats bar */
+    /* STATS BAR */
+    
     .stats-bar {
       display: flex;
       justify-content: center;
@@ -520,7 +529,7 @@
     }
     
     .stat-value {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       font-weight: 700;
       background: var(--gradient-main);
       -webkit-background-clip: text;
@@ -534,16 +543,78 @@
       margin-top: 0.25rem;
     }
     
-    /* Footer */
+    /* COMMUNITY SECTION */
+    
+    .community-section {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      margin-bottom: 5rem;
+    }
+    
+    .founder-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: var(--surface);
+      border-radius: 16px;
+      margin-top: 1.5rem;
+    }
+    
+    .founder-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+    
+    .founder-info h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .founder-info p {
+      color: var(--text-dim);
+      font-size: 0.875rem;
+    }
+    
+    /* CTA SECTION */
+    
+    .cta-section {
+      text-align: center;
+      margin-bottom: 5rem;
+      padding: 3rem;
+      background: var(--gradient-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+    }
+    
+    .cta-section h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    
+    .cta-section p {
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+    }
+    
+    /* FOOTER */
+    
     footer {
       text-align: center;
+      padding-top: 2rem;
     }
     
     .footer-links {
       display: flex;
       justify-content: center;
       gap: 1.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
     
     .footer-links a {
@@ -553,55 +624,35 @@
       transition: color 0.2s;
     }
     
-    .footer-links a:hover {
-      color: var(--text);
-    }
+    .footer-links a:hover { color: var(--text); }
     
     footer p {
       color: var(--text-dimmer);
       font-size: 0.8125rem;
     }
     
-    /* Animations */
+    /* ANIMATIONS */
+    
     @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
     @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Responsive */
+    /* RESPONSEIVE */
+    
     @media (max-width: 640px) {
-      .nav {
-        margin-bottom: 3rem;
-      }
-      
-      .nav-links {
-        display: none;
-      }
-      
-      .stats-bar {
-        gap: 2.5rem;
-      }
-      
-      .stat-value {
-        font-size: 2rem;
-      }
+      .nav { margin-bottom: 3rem; }
+      .nav-links { display: none; }
+      .stats-bar { gap: 2.5rem; }
+      .stat-value { font-size: 2rem; }
+      h1 { letter-spacing: -0.02em; }
+      .install-command { font-size: 0.875rem; }
+      .founder-card { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -622,7 +673,7 @@
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#skills">Skills</a>
-        <a href="#how-it-works">How it works</a>
+        <a href="#how-it-works">Cómo funciona</a>
         <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle">GitHub</a>
       </div>
     </nav>
@@ -636,8 +687,8 @@
       <h1>Tu AI coding assistant, <span class="gradient">tus reglas</span></h1>
       
       <p>
-        Configurá tu AI para queTrabaje como vos querés. Que pregunte antes de tocar código, 
-        que guarde decisiones en memoria, y que use tus skills favoritos en cada proyecto.
+        Configurá tu AI para que trabaje como vos definís. Que guarde decisiones en memoria, 
+        que use patterns probados, y que siempre pregunte antes de tocar código.
       </p>
       
       <div class="cta-group">
@@ -658,64 +709,167 @@
         </button>
       </div>
       <div class="install-command">
-        <span class="prompt">$</span> <span class="cmd">curl -sL</span> https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash
+        <span class="prompt">$</span> <span class="cmd">curl -sL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</span>
       </div>
     </div>
     
     <section class="features-grid" id="features">
       <article class="feature-card">
-        <div class="feature-icon">🤖</div>
-        <h3>Pregunta antes</h3>
-        <p>El AI te muestra lo que va a hacer y espera tu aprobación. Nada de cambios inesperados.</p>
+        <div class="feature-icon">🛡️</div>
+        <h3>Approval obligatorio</h3>
+        <p>El AI siempre te muestra lo que va a hacer y espera tu OK. Nada de cambios inesperados en tu código.</p>
       </article>
       
       <article class="feature-card">
         <div class="feature-icon">🧠</div>
-        <h3>Memoria automática</h3>
-        <p>Arquitectura, bugs corregidos, decisiones. Todo se guarda solo y persiste entre sesiones.</p>
+        <h3>Memoria persistente</h3>
+        <p>Arquitectura, bugs corregidos, decisiones. Todo se guarda y persiste entre sesiones con Engram.</p>
       </article>
       
       <article class="feature-card">
         <div class="feature-icon">🛠</div>
-        <h3>80+ Skills</h3>
-        <p>Patrones probados para Next.js, React, Angular, Prisma, Playwright, y más. Listos para usar.</p>
+        <h3>100+ Skills especializados</h3>
+        <p>Patterns probados para React, Angular, Next.js, Prisma, Playwright, y más. +Gentle-Skills community.</p>
       </article>
       
       <article class="feature-card">
         <div class="feature-icon">📋</div>
         <h3>Tu guía de trabajo</h3>
-        <p>Se aplica automáticamente en cada sesión. Tu forma de trabajar, replicada en todo proyecto.</p>
+        <p>Se aplica automáticamente. Tu forma de trabajar, replicada en cada proyecto.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">⚛️</div>
+        <h3>Redux Toolkit incluido</h3>
+        <p>State management para React/Vue apps con createSlice y RTK Query lista para usar.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Flujo SDD</h3>
+        <p>Spec-Driven Development: Explore → Propose → Spec → Design → Tasks → Apply → Verify.</p>
       </article>
     </section>
     
     <section class="skills-section" id="skills">
       <div class="section-header">
-        <h2>🛠 Skills disponibles</h2>
+        <h2>🛠 100+ Skills disponibles</h2>
+        <p>Todos los skills de maxpowerdev + Gentleman-Skills community</p>
       </div>
-      <div class="skills-cloud">
-        <span class="skill-tag frontend">Next.js 15</span>
-        <span class="skill-tag frontend">React 19</span>
-        <span class="skill-tag frontend">React Native</span>
-        <span class="skill-tag frontend">Angular</span>
-        <span class="skill-tag frontend">Vue 3</span>
-        <span class="skill-tag frontend">Tailwind 4</span>
-        <span class="skill-tag backend">Prisma</span>
-        <span class="skill-tag backend">Supabase</span>
-        <span class="skill-tag backend">Django</span>
-        <span class="skill-tag backend">Deno</span>
-        <span class="skill-tag backend">Spring Boot</span>
-        <span class="skill-tag devops">GitHub Actions</span>
-        <span class="skill-tag devops">Docker</span>
-        <span class="skill-tag devops">GCP</span>
-        <span class="skill-tag devops">AWS</span>
-        <span class="skill-tag devops">Vercel</span>
-        <span class="skill-tag ai">Vercel AI SDK</span>
-        <span class="skill-tag ai">MCP Builder</span>
-        <span class="skill-tag ai">OpenAI</span>
-        <span class="skill-tag ai">LangChain</span>
-        <span class="skill-tag frontend">Playwright</span>
-        <span class="skill-tag frontend">Vitest</span>
-        <span class="skill-tag backend">Pytest</span>
+      
+      <!-- SDD Workflow Skills -->
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color: var(--cyan); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">SDD Workflow (Spec-Driven Development)</h4>
+        <div class="skills-cloud">
+          <span class="skill-tag sdd">sdd-init</span>
+          <span class="skill-tag sdd">sdd-explore</span>
+          <span class="skill-tag sdd">sdd-propose</span>
+          <span class="skill-tag sdd">sdd-spec</span>
+          <span class="skill-tag sdd">sdd-design</span>
+          <span class="skill-tag sdd">sdd-tasks</span>
+          <span class="skill-tag sdd">sdd-apply</span>
+          <span class="skill-tag sdd">sdd-verify</span>
+          <span class="skill-tag sdd">sdd-archive</span>
+          <span class="skill-tag sdd">sdd-onboard</span>
+          <span class="skill-tag sdd">judgment-day</span>
+          <span class="skill-tag sdd">skill-creator</span>
+          <span class="skill-tag sdd">skill-registry</span>
+          <span class="skill-tag sdd">branch-pr</span>
+          <span class="skill-tag sdd">issue-creation</span>
+          <span class="skill-tag sdd">github-pr</span>
+        </div>
+      </div>
+      
+      <!-- Frontend -->
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color: var(--cyan); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">Frontend & UI</h4>
+        <div class="skills-cloud">
+          <span class="skill-tag frontend">React 19</span>
+          <span class="skill-tag frontend">Next.js 15</span>
+          <span class="skill-tag frontend">React Native</span>
+          <span class="skill-tag frontend">Angular</span>
+          <span class="skill-tag frontend">Angular Core</span>
+          <span class="skill-tag frontend">Angular Forms</span>
+          <span class="skill-tag frontend">Angular Architecture</span>
+          <span class="skill-tag frontend">Vue 3</span>
+          <span class="skill-tag frontend">Tailwind 4</span>
+          <span class="skill-tag frontend">Playwright</span>
+          <span class="skill-tag frontend">Vitest</span>
+        </div>
+      </div>
+      
+      <!-- State Management -->
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color: var(--amber); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">State Management</h4>
+        <div class="skills-cloud">
+          <span class="skill-tag rtk">Redux Toolkit</span>
+          <span class="skill-tag rtk">Zustand 5</span>
+        </div>
+      </div>
+      
+      <!-- Backend & Database -->
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color: var(--emerald); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">Backend & Database</h4>
+        <div class="skills-cloud">
+          <span class="skill-tag backend">Prisma</span>
+          <span class="skill-tag backend">Supabase</span>
+          <span class="skill-tag backend">Django</span>
+          <span class="skill-tag backend">Django DRF</span>
+          <span class="skill-tag backend">Deno</span>
+          <span class="skill-tag backend">Spring Boot 3</span>
+          <span class="skill-tag backend">Java 21</span>
+          <span class="skill-tag backend">Pytest</span>
+          <span class="skill-tag backend">Go Testing</span>
+        </div>
+      </div>
+      
+      <!-- AI & Automation -->
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color: var(--pink); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">AI & Automation</h4>
+        <div class="skills-cloud">
+          <span class="skill-tag ai">Vercel AI SDK</span>
+          <span class="skill-tag ai">MCP Builder</span>
+          <span class="skill-tag ai">OpenAI</span>
+          <span class="skill-tag ai">LangChain</span>
+          <span class="skill-tag ai">Pinecone</span>
+          <span class="skill-tag ai">Weaviate</span>
+          <span class="skill-tag ai">Zod 4</span>
+          <span class="skill-tag ai">n8n</span>
+          <span class="skill-tag ai">Make</span>
+        </div>
+      </div>
+      
+      <!-- DevOps & Cloud -->
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color: var(--violet); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">DevOps & Cloud</h4>
+        <div class="skills-cloud">
+          <span class="skill-tag devops">GitHub Actions</span>
+          <span class="skill-tag devops">Docker</span>
+          <span class="skill-tag devops">GCP</span>
+          <span class="skill-tag devops">AWS</span>
+          <span class="skill-tag devops">Vercel</span>
+          <span class="skill-tag devops">Grafana</span>
+          <span class="skill-tag devops">Prometheus</span>
+          <span class="skill-tag devops">ELK Stack</span>
+          <span class="skill-tag devops">Sentry</span>
+          <span class="skill-tag devops">Cron</span>
+        </div>
+      </div>
+      
+      <!-- Community & More -->
+      <div style="margin-bottom: 1.5rem;">
+        <h4 style="color: var(--amber); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">Community & More</h4>
+        <div class="skills-cloud">
+          <span class="skill-tag community">TypeScript</span>
+          <span class="skill-tag community">Electron</span>
+          <span class="skill-tag community">Elixir</span>
+          <span class="skill-tag community">Bolt.new</span>
+          <span class="skill-tag community">Puppeteer</span>
+          <span class="skill-tag community">Bash Scripting</span>
+          <span class="skill-tag community">WhatsApp API</span>
+          <span class="skill-tag community">Webhooks</span>
+          <span class="skill-tag community">Hexagonal Architecture</span>
+        </div>
       </div>
     </section>
     
@@ -728,7 +882,7 @@
           <div class="step-number">1</div>
           <div class="step-content">
             <h4>Install</h4>
-            <p>Corré el script y se copia solo</p>
+            <p>Corré el script y se configura solo</p>
           </div>
         </div>
         <div class="step">
@@ -757,12 +911,20 @@
     
     <section class="stats-bar">
       <div class="stat-item">
-        <div class="stat-value">80+</div>
+        <div class="stat-value">100+</div>
         <div class="stat-label">Skills</div>
       </div>
       <div class="stat-item">
         <div class="stat-value">🧠</div>
         <div class="stat-label">Memoria</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">⚛️</div>
+        <div class="stat-label">RTK</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">🔄</div>
+        <div class="stat-label">SDD</div>
       </div>
       <div class="stat-item">
         <div class="stat-value">∞</div>
@@ -774,12 +936,34 @@
       </div>
     </section>
     
+    <section class="community-section">
+      <div class="section-header">
+        <h2>💜 Comunidad</h2>
+        <p>Creado y mantenido por MaxPowerDev</p>
+      </div>
+      <div class="founder-card">
+        <img src="max.jpg" alt="Maximiliano Acri" class="founder-photo">
+        <div class="founder-info">
+          <h4>Maximiliano Acri</h4>
+          <p>Senior Architect con 15+ años de experiencia. GDE Google & Microsoft MVP. Passionate teacher que genuinamente quiere que la gente aprenda y crezca.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="cta-section">
+      <h2>🚀 Arrancá hoy mismo</h2>
+      <p>Tu setup profesional en menos de 2 minutos</p>
+      <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle" class="btn btn-primary">
+        ⭐ Ver en GitHub
+      </a>
+    </section>
+    
     <footer>
       <div class="footer-links">
         <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle">GitHub</a>
         <a href="https://opencode.ai">OpenCode</a>
+        <a href="https://github.com/Gentleman-Programming/gentle-ai">Gentle-AI</a>
         <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle/issues">Issues</a>
-        <a href="https://twitter.com">Twitter</a>
       </div>
       <p>Hecho con ❤️ por MaxPowerDev</p>
     </footer>
