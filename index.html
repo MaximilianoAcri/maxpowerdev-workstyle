@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MaxPowerDev WorkStyle | Tu AI labura solo + 10 AI Agents</title>
-  <meta name="description" content="Tu setup profesional. 10+ AI Agents soportados, memoria automática, 100+ skills. Arrancá y deja que el AI labure.">
+  <title>MaxPowerDev WorkStyle | Tu AI Stack Configurado</title>
+  <meta name="description" content="One command. Any agent. Any OS. Tu AI stack configurado con memoria, 100+ skills, y todo listo para laburar.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,6 @@
       --cyan: #22d3ee;
       --cyan-glow: #22d3ee33;
       --violet: #a78bfa;
-      --violet-glow: #a78bfa33;
       --pink: #f472b6;
       --emerald: #34d399;
       --amber: #fbbf24;
@@ -70,7 +69,7 @@
       inset: 0;
       background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
       background-size: 70px 70px;
-      opacity: 0.2;
+      opacity: 0.15;
       mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
     }
     
@@ -83,16 +82,17 @@
     .container {
       position: relative;
       z-index: 1;
-      max-width: 1100px;
+      max-width: 1024px;
       margin: 0 auto;
       padding: 4rem 1.5rem 5rem;
     }
     
+    /* Nav */
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
     }
     
     .logo {
@@ -119,39 +119,48 @@
     .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.9375rem; }
     .nav-links a:hover { color: var(--text); }
     
-    .hero { text-align: center; margin-bottom: 4rem; }
-    
-    .badge-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      padding: 0.4rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.8125rem;
-      color: var(--text-dim);
+    /* Badges */
+    .badges {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
       margin-bottom: 1.5rem;
     }
     
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+    
     .badge-dot {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       background: var(--emerald);
       border-radius: 50%;
       animation: pulse 2s ease-in-out infinite;
     }
     
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.3); }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
     
+    /* Hero */
+    .hero { text-align: center; margin-bottom: 3.5rem; }
+    
     h1 {
-      font-size: clamp(2.5rem, 9vw, 5rem);
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
       font-weight: 700;
-      letter-spacing: -0.045em;
-      margin-bottom: 1.5rem;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
     }
     
     h1 .gradient {
@@ -161,15 +170,10 @@
     }
     
     .hero p {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--text-dim);
-      max-width: 650px;
-      margin: 0 auto 2.5rem;
-    }
-    
-    .hero .highlight {
-      color: var(--cyan);
-      font-weight: 600;
+      max-width: 580px;
+      margin: 0 auto 2rem;
     }
     
     .cta-group {
@@ -183,13 +187,12 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.9rem 1.75rem;
-      border-radius: 14px;
+      padding: 0.875rem 1.5rem;
+      border-radius: 12px;
       font-weight: 600;
       font-size: 1rem;
       text-decoration: none;
       transition: all 0.25s;
-      cursor: pointer;
       border: none;
       font-family: inherit;
     }
@@ -197,12 +200,12 @@
     .btn-primary {
       background: var(--gradient-main);
       color: #000;
-      box-shadow: 0 4px 30px var(--cyan-glow);
+      box-shadow: 0 4px 24px var(--cyan-glow);
     }
     
     .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 50px var(--cyan-glow);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 32px var(--cyan-glow);
     }
     
     .btn-secondary {
@@ -216,30 +219,14 @@
       border-color: var(--border-light);
     }
     
+    /* Install Block */
     .install-block {
       background: var(--gradient-card);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 2rem;
-      margin-bottom: 5rem;
-    }
-    
-    .install-block::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--gradient-main);
-      opacity: 0.5;
-    }
-    
-    .install-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
+      border-radius: 20px;
+      padding: 1.75rem;
+      margin-bottom: 4rem;
+      text-align: center;
     }
     
     .install-label {
@@ -247,48 +234,35 @@
       font-weight: 500;
       color: var(--text-dim);
       text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
     }
     
     .install-label span { color: var(--cyan); }
     
-    .copy-btn {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text-dim);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      font-size: 0.8125rem;
-      cursor: pointer;
-    }
-    
-    .copy-btn:hover {
-      border-color: var(--cyan);
-      color: var(--cyan);
-    }
-    
-    .copy-btn.copied {
-      background: var(--cyan);
-      border-color: var(--cyan);
-      color: #000;
-    }
-    
     .install-command {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 1rem;
+      font-size: 1.125rem;
+      background: var(--surface);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      display: inline-block;
       word-break: break-all;
     }
     
     .install-command .prompt { color: var(--emerald); }
     .install-command .cmd { color: var(--cyan); }
     
-    /* AGENTS GRID */
-    .agents-section {
-      margin-bottom: 5rem;
+    .install-note {
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-dimmer);
     }
     
+    /* Section Titles */
     .section-title {
       text-align: center;
-      font-size: 2rem;
+      font-size: 1.75rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
@@ -299,134 +273,145 @@
       margin-bottom: 2rem;
     }
     
+    /* Agents Grid */
+    .agents-section {
+      margin-bottom: 4rem;
+    }
+    
     .agents-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.875rem;
     }
     
     .agent-card {
       background: var(--surface-elevated);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 14px;
       padding: 1.25rem;
       text-align: center;
-      transition: all 0.3s;
+      transition: all 0.25s;
     }
     
     .agent-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       border-color: var(--cyan);
     }
     
     .agent-icon {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.75rem;
+      margin-bottom: 0.375rem;
     }
     
     .agent-name {
       font-weight: 600;
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
     }
     
-    .agent-desc {
-      font-size: 0.75rem;
-      color: var(--text-dimmer);
-      margin-top: 0.25rem;
-    }
-    
-    /* FEATURES */
+    /* Features */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 4rem;
     }
     
     .feature-card {
       background: var(--surface-elevated);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 1.75rem;
+      border-radius: 16px;
+      padding: 1.5rem;
     }
     
     .feature-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      margin-bottom: 1.25rem;
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
     }
     
-    .feature-card:nth-child(1) .feature-icon { background: linear-gradient(135deg, #22d3ee22, #0e749011); }
-    .feature-card:nth-child(2) .feature-icon { background: linear-gradient(135deg, #a78bfa22, #7c3aed11); }
-    .feature-card:nth-child(3) .feature-icon { background: linear-gradient(135deg, #34d39922, #05966911); }
-    .feature-card:nth-child(4) .feature-icon { background: linear-gradient(135deg, #f472b622, #db277711); }
-    .feature-card:nth-child(5) .feature-icon { background: linear-gradient(135deg, #fbbf2422, #d9770611); }
-    .feature-card:nth-child(6) .feature-icon { background: linear-gradient(135deg, #f472b622, #be185d11); }
-    
     .feature-card h3 {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.375rem;
     }
     
     .feature-card p {
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
       color: var(--text-dim);
     }
     
-    /* SKILLS */
-    .skills-section {
-      text-align: center;
-      margin-bottom: 5rem;
+    /* Install Methods */
+    .install-methods {
+      margin-bottom: 4rem;
       padding: 2rem;
       background: var(--surface-elevated);
-      border-radius: 24px;
+      border-radius: 20px;
+    }
+    
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .method-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    
+    .method-card h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--cyan);
+    }
+    
+    .method-card code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--text-dim);
+      word-break: break-all;
+    }
+    
+    /* Skills Cloud */
+    .skills-section {
+      margin-bottom: 4rem;
+      padding: 2rem;
+      background: var(--surface-elevated);
+      border-radius: 20px;
     }
     
     .skills-cloud {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.625rem;
+      gap: 0.5rem;
       justify-content: center;
-      max-width: 800px;
-      margin: 0 auto;
     }
     
     .skill-tag {
       background: var(--surface);
       border: 1px solid var(--border);
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
+      padding: 0.375rem 0.875rem;
+      border-radius: 8px;
       font-size: 0.8125rem;
       color: var(--text-dim);
     }
     
-    .skill-tag:hover {
-      border-color: var(--cyan);
-      color: var(--text);
-    }
-    
-    /* STATS */
+    /* Stats */
     .stats-bar {
       display: flex;
       justify-content: center;
-      gap: 4rem;
+      gap: 3rem;
       flex-wrap: wrap;
-      padding: 2.5rem 0;
+      padding: 2rem 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      margin-bottom: 4rem;
+      margin-bottom: 3.5rem;
     }
     
-    .stat-item { text-align: center; }
-    
     .stat-value {
-      font-size: 2.75rem;
+      font-size: 2.25rem;
       font-weight: 700;
       background: var(--gradient-main);
       -webkit-background-clip: text;
@@ -434,47 +419,38 @@
     }
     
     .stat-label {
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
       color: var(--text-dim);
-      margin-top: 0.25rem;
     }
     
-    /* CTA */
-    .cta-section {
-      text-align: center;
-      margin-bottom: 5rem;
-      padding: 3rem;
-      background: var(--gradient-card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-    }
-    
-    /* FOOTER */
+    /* Footer */
     footer {
       text-align: center;
-      padding-top: 2rem;
+      padding-top: 1.5rem;
     }
     
     .footer-links {
       display: flex;
       justify-content: center;
       gap: 1.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
     
     .footer-links a {
       color: var(--text-dim);
       text-decoration: none;
+      font-size: 0.875rem;
     }
     
     footer p {
       color: var(--text-dimmer);
-      font-size: 0.8125rem;
+      font-size: 0.75rem;
     }
     
     @media (max-width: 640px) {
       .nav-links { display: none; }
-      .stats-bar { gap: 2rem; }
+      .badges { flex-wrap: wrap; }
+      .install-command { font-size: 0.875rem; }
     }
   </style>
 </head>
@@ -493,102 +469,94 @@
         <span>MaxPowerDev</span>
       </div>
       <div class="nav-links">
-        <a href="#features">Features</a>
+        <a href="#quick-start">Quick Start</a>
         <a href="#agents">Agents</a>
-        <a href="#skills">Skills</a>
+        <a href="#features">Features</a>
         <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle">GitHub</a>
       </div>
     </nav>
     
     <header class="hero">
-      <div class="badge-pill">
-        <div class="badge-dot"></div>
-        <span>10+ AI Agents Soportados</span>
+      <div class="badges">
+        <div class="badge">
+          <div class="badge-dot"></div>
+          OpenSource
+        </div>
+        <div class="badge">Any OS</div>
+        <div class="badge">Any Agent</div>
+        <div class="badge">100+ Skills</div>
       </div>
       
-      <h1>Tu AI labura <span class="gradient">solo</span></h1>
+      <h1>Tu AI Stack,<br><span class="gradient">Configurado y Listo</span></h1>
       
       <p>
-        Arrancá con tu agente favorito y deixa que labs. 
-        <span class="highlight">Memoria automática</span>, 
-        <span class="highlight">100+ skills</span>, 
-        y trabaja inteligente desde el primer commit.
+        <strong>No es un installer de agents.</strong> Es un <strong>ecosistema configurador</strong> -- toma cualquier AI agent que usés y lo supercarga con memoria persistente, skills curados, y flujos de trabajo definidos.
       </p>
       
       <div class="cta-group">
         <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle" class="btn btn-primary">
           ⭐ Star on GitHub
         </a>
-        <a href="#install" class="btn btn-secondary">
-          🚀 Install Now
+        <a href="#quick-start" class="btn btn-secondary">
+          ⚡ Install Now
         </a>
       </div>
     </header>
     
-    <div class="install-block" id="install">
-      <div class="install-header">
-        <div class="install-label">⚡ <span>1-Line Install</span></div>
-        <button class="copy-btn" onclick="copyCommand()">📋 Copiar</button>
-      </div>
+    <div class="install-block" id="quick-start">
+      <div class="install-label">⚡ <span>Quick Install</span> - macOS / Linux</div>
       <div class="install-command">
-        <span class="prompt">$</span> <span class="cmd">curl -sL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</span>
+        <span class="prompt">$</span> <span class="cmd">curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</span>
+      </div>
+      <div class="install-note">
+        Windows? Usá WSL o el comando de abajo ↓
       </div>
     </div>
     
     <section class="agents-section" id="agents">
       <h2 class="section-title">🤖 10+ AI Agents Soportados</h2>
-      <p class="section-subtitle">Usá el que más te gusta. Todos funcionan con esta config.</p>
+      <p class="section-subtitle">Usá el que ya tenés. Todos funcionan con esta config.</p>
       
       <div class="agents-grid">
         <div class="agent-card">
           <div class="agent-icon">🔵</div>
           <div class="agent-name">Claude Code</div>
-          <div class="agent-desc">Sub-agents</div>
         </div>
         <div class="agent-card">
           <div class="agent-icon">⚡</div>
           <div class="agent-name">OpenCode</div>
-          <div class="agent-desc">Per-phase models</div>
         </div>
         <div class="agent-card">
           <div class="agent-icon">🌐</div>
           <div class="agent-name">Gemini CLI</div>
-          <div class="agent-desc">Custom agents</div>
         </div>
         <div class="agent-card">
           <div class="agent-icon">💻</div>
           <div class="agent-name">Cursor</div>
-          <div class="agent-desc">Plan Mode</div>
         </div>
         <div class="agent-card">
           <div class="agent-icon">🌀</div>
           <div class="agent-name">Windsurf</div>
-          <div class="agent-desc">Code Mode</div>
         </div>
         <div class="agent-card">
           <div class="agent-icon">📦</div>
           <div class="agent-name">Codex</div>
-          <div class="agent-desc">CLI-native</div>
         </div>
         <div class="agent-card">
           <div class="agent-icon">🛸</div>
           <div class="agent-name">VS Copilot</div>
-          <div class="agent-desc">Parallel exec</div>
         </div>
         <div class="agent-card">
           <div class="agent-icon">🚀</div>
           <div class="agent-name">Kiro IDE</div>
-          <div class="agent-desc">Native subs</div>
         </div>
         <div class="agent-card">
           <div class="agent-icon">🐳</div>
           <div class="agent-name">Qwen</div>
-          <div class="agent-desc">Slash cmds</div>
         </div>
         <div class="agent-card">
           <div class="agent-icon">🎯</div>
           <div class="agent-name">Antigravity</div>
-          <div class="agent-desc">Browser/Terminal</div>
         </div>
       </div>
     </section>
@@ -596,14 +564,26 @@
     <section class="features-grid" id="features">
       <article class="feature-card">
         <div class="feature-icon">🧠</div>
-        <h3>Memoria Automática</h3>
-        <p>Se guarda todo solito. Arquitectura, bugs, decisiones. No preguntes nada, está todo ahí.</p>
+        <h3>Memoria Persistente</h3>
+        <p>Tu agent recuerda decisiones, bugs y contexto entre sesiones. No hacés nada, simplemente funciona.</p>
       </article>
       
       <article class="feature-card">
         <div class="feature-icon">🛠</div>
         <h3>100+ Skills</h3>
-        <p>Patterns para React, Angular, Next.js, Prisma, Playwright. Listos para usar.</p>
+        <p>Patterns curados para React, Angular, Next.js, Prisma, Playwright y más.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Tu Guía de Trabajo</h3>
+        <p>Se aplica automáticamente. Tu forma de laburar, replicada en cada proyecto.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Flujo SDD</h3>
+        <p>Spec-Driven Development: Explore → Spec → Design → Apply → Verify.</p>
       </article>
       
       <article class="feature-card">
@@ -613,26 +593,43 @@
       </article>
       
       <article class="feature-card">
-        <div class="feature-icon">🔄</div>
-        <h3>Flujo SDD</h3>
-        <p>Spec-Driven Development si necesitás algo serio.</p>
-      </article>
-      
-      <article class="feature-card">
-        <div class="feature-icon">📋</div>
-        <h3>Tu Guía de Trabajo</h3>
-        <p>Se aplica solo. Tu forma de laburar, replicada.</p>
-      </article>
-      
-      <article class="feature-card">
-        <div class="feature-icon">🌊</div>
+        <div class="feature-icon">💜</div>
         <h3>Gentle-AI Powered</h3>
-        <p>Con el ecosistema Gentle-AI. 10 agentes, memoria, skills.</p>
+        <p>Con el ecosistema Gentle-AI. Lo mismo que ellos, adaptado por MaxPowerDev.</p>
       </article>
     </section>
     
-    <section class="skills-section" id="skills">
-      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">🛠 100+ Skills</h2>
+    <section class="install-methods" id="install">
+      <h2 class="section-title">📦 Multiple Install Methods</h2>
+      <p class="section-subtitle">Funciona en cualquier terminal, cualquier entorno</p>
+      
+      <div class="method-grid">
+        <div class="method-card">
+          <h4>macOS / Linux</h4>
+          <code>curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</code>
+        </div>
+        
+        <div class="method-card">
+          <h4>Windows (WSL)</h4>
+          <code>curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</code>
+        </div>
+        
+        <div class="method-card">
+          <h4>Direct Download</h4>
+          <code>Descargar install.sh del repo y ejecutar localmente</code>
+        </div>
+        
+        <div class="method-card">
+          <h4>Git Clone</h4>
+          <code>git clone https://github.com/MaximilianoAcri/maxpowerdev-workstyle && cd maxpowerdev-workstyle && ./install.sh</code>
+        </div>
+      </div>
+    </section>
+    
+    <section class="skills-section">
+      <h2 class="section-title">🛠 Skills Disponibles</h2>
+      <p class="section-subtitle">Todo lo que necesitás para laburar</p>
+      
       <div class="skills-cloud">
         <span class="skill-tag">React 19</span>
         <span class="skill-tag">Next.js 15</span>
@@ -658,59 +655,41 @@
     </section>
     
     <section class="stats-bar">
-      <div class="stat-item">
+      <div>
         <div class="stat-value">10+</div>
         <div class="stat-label">AI Agents</div>
       </div>
-      <div class="stat-item">
+      <div>
         <div class="stat-value">100+</div>
         <div class="stat-label">Skills</div>
       </div>
-      <div class="stat-item">
+      <div>
         <div class="stat-value">🧠</div>
         <div class="stat-label">Memory</div>
       </div>
-      <div class="stat-item">
+      <div>
         <div class="stat-value">⚛️</div>
         <div class="stat-label">RTK</div>
       </div>
-      <div class="stat-item">
+      <div>
         <div class="stat-value">0</div>
         <div class="stat-label">Costo</div>
       </div>
-    </section>
-    
-    <section class="cta-section">
-      <h2>🚀 Arrancá ahora</h2>
-      <p>Tu setup profesional en menos de 2 minutos</p>
-      <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle" class="btn btn-primary">
-        ⭐ Ver en GitHub
-      </a>
+      <div>
+        <div class="stat-value">∞</div>
+        <div class="stat-label">Projects</div>
+      </div>
     </section>
     
     <footer>
       <div class="footer-links">
         <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle">GitHub</a>
         <a href="https://github.com/Gentleman-Programming/gentle-ai">Gentle-AI</a>
-        <a href="https://github.com/Gentleman-Programming/gentle-ai">Gentle-Skills</a>
+        <a href="https://github.com/Gentleman-Programming/Gentleman-Skills">Gentle-Skills</a>
+        <a href="https://opencode.ai">Docs</a>
       </div>
       <p>Hecho con ❤️ por MaxPowerDev</p>
     </footer>
   </div>
-  
-  <script>
-    function copyCommand() {
-      const command = 'curl -sL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash';
-      navigator.clipboard.writeText(command).then(() => {
-        const btn = document.querySelector('.copy-btn');
-        btn.textContent = '✓!';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = '📋 Copiar';
-          btn.classList.remove('copied');
-        }, 2000);
-      });
-    }
-  </script>
 </body>
 </html>
