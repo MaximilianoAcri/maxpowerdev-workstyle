@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MaxPowerDev WorkStyle | One Command. Any Agent. Any OS.</title>
-  <meta name="description" content="One command. Any agent. Any OS. Tu AI Stack configurado con memoria, 100+ skills, y todo listo para laburar.">
+  <title>MaxPowerDev WorkStyle | Tu stack de desarrollo completo</title>
+  <meta name="description" content="Un solo repo te instala todo el stack de desarrollo. Memoria, 100+ skills, Redux Toolkit, y las mejores herramientas configuadas. Actualizable con un comando.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,7 +82,7 @@
     .logo-icon {
       width: 42px; height: 42px;
       background: var(--gradient-main);
-      border-radius: 12px;
+      border-radius: 16px;
       display: flex; align-items: center; justify-content: center;
       font-size: 22px; box-shadow: 0 0 35px var(--cyan-glow);
     }
@@ -99,7 +99,7 @@
     .badge {
       display: inline-flex; align-items: center; gap: 0.375rem;
       background: var(--surface-elevated); border: 1px solid var(--border);
-      padding: 0.375rem 0.75rem; border-radius: 9999px;
+      padding: 0.375rem 0.75rem; border-radius: 16px;
       font-size: 0.75rem; color: var(--text-dim);
     }
     
@@ -111,11 +111,13 @@
     
     .hero p { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 2rem; line-height: 1.7; }
     
+    .hero p strong { color: var(--text); }
+    
     .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
     
     .btn {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.875rem 1.5rem; border-radius: 12px;
+      padding: 0.875rem 1.5rem; border-radius: 16px;
       font-weight: 600; font-size: 1rem; text-decoration: none;
       transition: all 0.25s; border: none; font-family: inherit;
     }
@@ -138,16 +140,16 @@
     .hero-image::before {
       content: ''; position: absolute; inset: -30px;
       background: var(--gradient-main);
-      border-radius: 40px;
+      border-radius: 16px;
       opacity: 0.2; filter: blur(50px); z-index: -1;
     }
     
     .founder-label { margin-top: 1rem; font-size: 0.875rem; color: var(--text-dimmer); text-align: center; }
     
-    .install-block { background: var(--gradient-card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; margin-bottom: 4rem; text-align: center; }
+    .install-block { background: var(--gradient-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 4rem; text-align: center; }
     .install-label { font-size: 0.8125rem; font-weight: 500; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
     .install-label span { color: var(--cyan); }
-    .install-command { font-family: 'JetBrains Mono', monospace; font-size: 1.125rem; background: var(--surface); padding: 1.25rem 1.75rem; border-radius: 14px; display: inline-block; }
+    .install-command { font-family: 'JetBrains Mono', monospace; font-size: 1.125rem; background: var(--surface); padding: 1.25rem 1.75rem; border-radius: 16px; display: inline-block; }
     .install-command .prompt { color: var(--emerald); }
     .install-command .cmd { color: var(--cyan); }
     .install-note { margin-top: 0.875rem; font-size: 0.8125rem; color: var(--text-dimmer); }
@@ -163,22 +165,43 @@
     .agent-name { font-weight: 600; font-size: 0.9375rem; }
     
     .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 5rem; }
-    .feature-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 18px; padding: 1.75rem; transition: all 0.3s; }
+    .feature-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; transition: all 0.3s; }
     .feature-card:hover { border-color: var(--cyan); transform: translateY(-4px); }
     .feature-icon { font-size: 1.75rem; margin-bottom: 1rem; }
     .feature-card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
     .feature-card p { font-size: 0.9375rem; color: var(--text-dim); line-height: 1.7; }
     
-    .install-methods { margin-bottom: 5rem; padding: 2.5rem; background: var(--surface-elevated); border-radius: 24px; }
+    .what-it-does { margin-bottom: 5rem; padding: 2.5rem; background: var(--surface-elevated); border-radius: 16px; }
+    
+    .what-it-does-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 1.5rem; }
+    
+    .what-item {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+    
+    .what-item-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .what-item h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .what-item p { font-size: 0.875rem; color: var(--text-dim); }
+    
+    .install-methods { margin-bottom: 5rem; padding: 2.5rem; background: var(--surface-elevated); border-radius: 16px; }
     .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
-    .method-card { background: var(--surface); border-radius: 14px; padding: 1.5rem; }
+    .method-card { background: var(--surface); border-radius: 16px; padding: 1.5rem; }
     .method-card h4 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.625rem; color: var(--cyan); }
     .method-card code { font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; color: var(--text-dim); word-break: break-all; display: block; }
     
-    .skills-section { margin-bottom: 5rem; padding: 2.5rem; background: var(--surface-elevated); border-radius: 24px; }
+    .skills-section { margin-bottom: 5rem; padding: 2.5rem; background: var(--surface-elevated); border-radius: 16px; }
     .skills-cloud { display: flex; flex-wrap: wrap; gap: 0.625rem; justify-content: center; }
-    .skill-tag { background: var(--surface); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 10px; font-size: 0.8125rem; color: var(--text-dim); }
+    .skill-tag { background: var(--surface); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 16px; font-size: 0.8125rem; color: var(--text-dim); }
     .skill-tag:hover { border-color: var(--cyan); color: var(--text); }
+    
+    .update-section { margin-bottom: 5rem; padding: 2.5rem; background: var(--gradient-card); border: 1px solid var(--emerald); border-radius: 16px; text-align: center; }
+    .update-section h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .update-section p { color: var(--text-dim); margin-bottom: 1.5rem; }
+    .update-command { font-family: 'JetBrains Mono', monospace; background: var(--surface); padding: 1rem 1.5rem; border-radius: 16px; display: inline-block; }
+    .update-command .prompt { color: var(--emerald); }
+    .update-command .cmd { color: var(--emerald); }
     
     .stats-bar { display: flex; justify-content: center; gap: 3.5rem; flex-wrap: wrap; padding: 2.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 4rem; }
     .stat-item { text-align: center; }
@@ -217,10 +240,10 @@
         <span>MaxPowerDev</span>
       </div>
       <div class="nav-links">
-        <a href="#quick-start">Quick Start</a>
+        <a href="#what-it-does">Qué hace?</a>
         <a href="#agents">Agents</a>
         <a href="#features">Features</a>
-        <a href="#install">Install</a>
+        <a href="#update">Actualizar</a>
         <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle">GitHub</a>
       </div>
     </nav>
@@ -228,35 +251,65 @@
     <header class="hero">
       <div class="hero-content">
         <div class="badges">
-          <div class="badge"><div class="badge-dot"></div>OpenSource</div>
-          <div class="badge">Any OS</div>
-          <div class="badge">Any Agent</div>
-          <div class="badge">100+ Skills</div>
+          <div class="badge"><div class="badge-dot"></div>Un repo</div>
+          <div class="badge">Todo installed</div>
+          <div class="badge">Actualizable</div>
         </div>
         
-        <h1>Tu AI Stack,<br><span class="gradient">Configurado y Listo</span></h1>
+        <h1>Tu stack de desarrollo,<br><span class="gradient">completo y configurado</span></h1>
         
         <p>
-          <strong>No es un installer de agents.</strong> Es un <strong>ecosistema configurador</strong> -- toma cualquier AI agent que usés y lo supercarga con memoria persistente, skills curados, y flujos de trabajo definidos.
+          <strong>Un solo comando te instala TODO de una:</strong> memoria persistente, 100+ skills, Redux Toolkit, y las mejores herramientas del mercado configuradas. Olvidate de instalar una por una.
         </p>
         
         <div class="cta-group">
           <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle" class="btn btn-primary">⭐ Star on GitHub</a>
-          <a href="#quick-start" class="btn btn-secondary">⚡ Install Now</a>
+          <a href="#install" class="btn btn-secondary">⚡ Install Now</a>
         </div>
       </div>
       
       <div class="hero-image">
-        <img src="maxsetup.png" alt="Maximiliano Acri - MaxPowerDev">
+        <img src="maxsetup.png" alt="Maximiliano Acri">
         <div class="founder-label">Maximiliano Acri</div>
       </div>
     </header>
     
-    <div class="install-block" id="quick-start">
-      <div class="install-label">⚡ <span>Quick Install</span> - macOS / Linux / WSL</div>
+    <div class="install-block" id="install">
+      <div class="install-label">⚡ <span>Install</span> - macOS / Linux / WSL</div>
       <div class="install-command"><span class="prompt">$</span> <span class="cmd">curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</span></div>
-      <div class="install-note">Windows? Usá WSL o descargá el install.sh del repo.</div>
+      <div class="install-note">Windows? Usá WSL.</div>
     </div>
+    
+    <section class="what-it-does" id="what-it-does">
+      <h2 class="section-title">🤔 Para qué sirve esto?</h2>
+      <p class="section-subtitle">Básicamente, te ahorra horas de configuración</p>
+      
+      <div class="what-it-does-grid">
+        <div class="what-item">
+          <div class="what-item-icon">😩</div>
+          <h4>Sin esto</h4>
+          <p>Tenés que installar OpenCode, configurar Engram, agregar skills uno por uno, configurar Workflow, y buscar cómo hacer que todo funcione junto.</p>
+        </div>
+        
+        <div class="what-item">
+          <div class="what-item-icon">😎</div>
+          <h4>Con esto</h4>
+          <p>Un comando y tenés TODO listo: memoria, skills, guide de trabajo, y las mejores herramientas configuadas automáticamente.</p>
+        </div>
+        
+        <div class="what-item">
+          <div class="what-item-icon">🔄</div>
+          <h4>Actualizable</h4>
+          <p>Cada vez que actualizá, tenés las últimas tecnologías y mejoras. Un comando y estás a la vanguardia.</p>
+        </div>
+        
+        <div class="what-item">
+          <div class="what-item-icon">🎯</div>
+          <h4>Tu forma de trabajar</h4>
+          <p>Se aplica tu guía de trabajo automáticamente. Tu forma de laburar, replicada en cada proyecto.</p>
+        </div>
+      </div>
+    </section>
     
     <section class="agents-section" id="agents">
       <h2 class="section-title">🤖 10+ AI Agents Soportados</h2>
@@ -277,29 +330,70 @@
     </section>
     
     <section class="features-grid" id="features">
-      <article class="feature-card"><div class="feature-icon">🧠</div><h3>Memoria Persistente</h3><p>Tu agent recuerda decisiones, bugs y contexto entre sesiones. Sin hacer nada, simplemente funciona.</p></article>
-      <article class="feature-card"><div class="feature-icon">🛠</div><h3>100+ Skills</h3><p>Patterns curados para React, Angular, Next.js, Prisma, Playwright y más.</p></article>
-      <article class="feature-card"><div class="feature-icon">📋</div><h3>Tu Guía de Trabajo</h3><p>Se aplica automáticamente. Tu forma de laburar, replicada en cada proyecto.</p></article>
-      <article class="feature-card"><div class="feature-icon">🔄</div><h3>Flujo SDD</h3><p>Spec-Driven Development: Explore → Spec → Design → Apply → Verify.</p></article>
-      <article class="feature-card"><div class="feature-icon">⚛️</div><h3>Redux Toolkit</h3><p>State management para React. createSlice, RTK Query.</p></article>
-      <article class="feature-card"><div class="feature-icon">💜</div><h3>Gentle-AI Powered</h3><p>Con el ecosistema Gentle-AI. Lo mismo que ellos, adaptado por MaxPowerDev.</p></article>
+      <article class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3>Memoria Persistente</h3>
+        <p>El agent recuerda decisiones, bugs y contexto entre sesiones. Sin hacer nada, simplemente funciona.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">🛠</div>
+        <h3>100+ Skills</h3>
+        <p>Patterns curados para React, Angular, Next.js, Prisma, Playwright y más.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">⚛️</div>
+        <h3>Redux Toolkit</h3>
+        <p>State management para React configurado. createSlice, RTK Query listos.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Flujo SDD</h3>
+        <p>Spec-Driven Development para features complejas.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Tu Guía de Trabajo</h3>
+        <p>Se aplica automáticamente en cada proyecto.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">💜</div>
+        <h3>Gentle-AI Powered</h3>
+        <p>Con el ecosistema Gentle-AI. Lo mejor, adaptado.</p>
+      </article>
     </section>
     
-    <section class="install-methods" id="install">
-      <h2 class="section-title">📦 Multiple Install Methods</h2>
-      <p class="section-subtitle">Funciona en cualquier terminal, cualquier entorno</p>
+    <section class="install-methods" id="methods">
+      <h2 class="section-title">📦 Múltiples formas de instalar</h2>
+      <p class="section-subtitle">Funciona en cualquier entorno</p>
       
       <div class="method-grid">
-        <div class="method-card"><h4>macOS / Linux</h4><code>curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</code></div>
-        <div class="method-card"><h4>Windows (WSL)</h4><code>curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</code></div>
-        <div class="method-card"><h4>PowerShell</h4><code>irm https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | iex</code></div>
-        <div class="method-card"><h4>Git Clone</h4><code>git clone https://github.com/MaximilianoAcri/maxpowerdev-workstyle && cd maxpowerdev-workstyle && ./install.sh</code></div>
+        <div class="method-card">
+          <h4>macOS / Linux</h4>
+          <code>curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</code>
+        </div>
+        <div class="method-card">
+          <h4>Windows (WSL)</h4>
+          <code>curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</code>
+        </div>
+        <div class="method-card">
+          <h4>PowerShell</h4>
+          <code>irm https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | iex</code>
+        </div>
+        <div class="method-card">
+          <h4>Git Clone</h4>
+          <code>git clone https://github.com/MaximilianoAcri/maxpowerdev-workstyle && cd maxpowerdev-workstyle && ./install.sh</code>
+        </div>
       </div>
     </section>
     
     <section class="skills-section">
-      <h2 class="section-title">🛠 Skills Disponibles</h2>
-      <p class="section-subtitle">Todo lo que necesitás para laburar</p>
+      <h2 class="section-title">🛠 100+ Skills disponibles</h2>
+      <p class="section-subtitle">Las mejores herramientas, configuradas y listas</p>
       <div class="skills-cloud">
         <span class="skill-tag">React 19</span>
         <span class="skill-tag">Next.js 15</span>
@@ -322,6 +416,15 @@
         <span class="skill-tag">Playwright</span>
         <span class="skill-tag">+80 más</span>
       </div>
+    </section>
+    
+    <section class="update-section" id="update">
+      <h3>🔄 Mantené todo actualizado</h3>
+      <p>Con un comando tenés las últimas tecnologías y mejoras</p>
+      <div class="update-command">
+        <span class="prompt">$</span> <span class="cmd">curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</span>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-dimmer);">Ejecutá el mismo comando cuando quieras actualizar</p>
     </section>
     
     <section class="stats-bar">
