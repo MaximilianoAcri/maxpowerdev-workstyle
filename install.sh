@@ -66,7 +66,7 @@ log "Estructura creada"
 # ═════════════════════════════════════════════════════════════════════════════
 
 title "Instalando WORKSTYLE..."
-WORKSTYLE_URL="https://raw.githubusercontent.com/MaximilianoAcri/maxpowerdev-workstyle/gh-pages/WORKSTYLE.md"
+WORKSTYLE_URL="https://maximilianoacri.github.io/maxpowerdev-workstyle/WORKSTYLE.md"
 
 if curl -fsSL "$WORKSTYLE_URL" -o ~/.opencode/WORKSTYLE.md 2>/dev/null; then
     log "WORKSTYLE.md instalado en ~/.opencode/"

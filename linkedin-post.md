@@ -116,7 +116,7 @@ Hasta que creé MaxPowerDev WorkStyle.
 🖥️ CÓMO FUNCIONA
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash
+curl -fsSL https://maximilianoacri.github.io/maxpowerdev-workstyle/install.sh | bash
 ```
 
 Eso es todo. Tu entorno, listo para programar.

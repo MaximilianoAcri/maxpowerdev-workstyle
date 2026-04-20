@@ -39,12 +39,12 @@ Básicamente, **te ahorra horas de configuración**.
 
 ```bash
 # macOS / Linux / WSL
-curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash
+curl -fsSL https://maximilianoacri.github.io/maxpowerdev-workstyle/install.sh | bash
 ```
 
 ```bash
 # PowerShell
-irm https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | iex
+irm https://maximilianoacri.github.io/maxpowerdev-workstyle/install.sh | iex
 ```
 
 ```bash
@@ -72,7 +72,7 @@ No más buscar cómo configurar cada cosa por separado. Un comando y:
 Cada vez que ejecutás el install, tenés las últimas tecnologías y mejoras:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash
+curl -fsSL https://maximilianoacri.github.io/maxpowerdev-workstyle/install.sh | bash
 ```
 
 Ejecutá cuando quieras actualizar. Así siempre estás a la vanguardia.
@@ -151,7 +151,7 @@ Usá el que ya tenés. Todos funcionan con esta config.
 Ejecutá el mismo comando cuando quieras tener las últimas tecnologías:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash
+curl -fsSL https://maximilianoacri.github.io/maxpowerdev-workstyle/install.sh | bash
 ```
 
 Cada vez que actualizá:
