@@ -2,7 +2,41 @@
 
 ---
 
-## OPCIÓN 1 - corto ⭐ (ENFOQUE: me siento más cómodo)
+## OPCIÓN 1 - corto ⭐ (GANCHO: re-configurar sería engorroso)
+
+⌛️ Hace un tiempo hice un post de mi stack para programar.
+
+Si lo tuviera que volver a configurar hoy... me llevaría horas重新.
+
+Por eso automatizó TODO:
+
+▶ Un comando = tu stack ready
+▶ Memoria + 100+ skills + RTK
+▶ Actualizable con 1 línea
+
+Si te pasa lo mismo, esto te salva.
+
+Link en comentarios ⬇️
+
+#developer #tools #productivity #coding
+
+---
+
+## OPCIÓN 1.5 - super corto (GANCHO: ya lo usás)
+
+🧑‍💻 Si usás mi setup de desarrollo...
+
+Sabés que si te mandan una nota, te lo configurás en 5 segundos.
+
+Si no lo conocés, ahora podés:
+
+1 comando = todo tu stack instalado.
+
+Link ⬇️
+
+---
+
+## OPCIÓN 2 - corto ⭐ (ENFOQUE: me siento más cómodo)
 
 🧑‍💻 Con este setup me siento más cómodo programando.
 
