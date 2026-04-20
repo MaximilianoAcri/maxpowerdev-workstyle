@@ -145,6 +145,29 @@ if [ $AGENTS_FOUND -eq 0 ]; then
 fi
 
 # ═════════════════════════════════════════════════════════════════════════════
+# INSTALAR GENTLE-AI (Ecosistema completo)
+# ═════════════════════════════════════════════════════════════════════════════
+
+echo ""
+title "Verificando Gentle-AI..."
+
+if command -v gentle-ai &> /dev/null; then
+    log "Gentle-AI ya instalado"
+else
+    if command -v brew &> /dev/null; then
+        # Intentar instalar Gentle-AI
+        if ! brew tap | grep -q "Gentleman-Programming/homebrew-tap" 2>/dev/null; then
+            brew tap Gentleman-Programming/homebrew-tap 2>/dev/null
+        fi
+        brew install gentle-ai 2>/dev/null && log "Gentle-AI instalado" || info "Gentle-AI disponible (brew install gentle-ai)"
+    else
+        info "Gentle-AI disponible para instalar"
+        echo "  → brew tap Gentleman-Programming/homebrew-tap"
+        echo "  → brew install gentle-ai"
+    fi
+fi
+
+# ═════════════════════════════════════════════════════════════════════════════
 # INSTALAR ENGRAM (MEMORIA)
 # ═════════════════════════════════════════════════════════════════════════════
 
