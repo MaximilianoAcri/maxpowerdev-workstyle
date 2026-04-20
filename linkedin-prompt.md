@@ -21,8 +21,11 @@ Incluir:
 
 Largo: [CORTO/MEDIO/LARGO]
 
-Ejemplo de tono:
-"🧵 Por años hice X de la manera difícil... hasta que descubrí Y"
+Ejemplo de tono (ENFOQUE: comodidad, no frustración):
+"Me bancé años haciendo X... hasta que automatizó y ahora programo más tranquilo"
+
+O mejor aún:
+"Con este setup me siento más cómodo_programando"
 
 Ahora escribilo sobre:
 [TEMA]

@@ -2,21 +2,20 @@
 
 ---
 
-## OPCIÓN 1 - corto (más efectivo)
+## OPCIÓN 1 - corto ⭐ (ENFOQUE: me siento más cómodo)
 
-🧵 Por años instalé herramientas de desarrollo una por una...
+🧑‍💻 Con este setup me siento más cómodo programando.
 
-OpenCode, Engram, skills, workflows... horas de configuración.
+Un solo repo con:
+▶ Memoria que no se me olvida
+▶ 100+ skills ready
+▶ Redux Toolkit configurado
+▶ Todo actualizado con 1 comando
 
-Hasta que creé esto:
+Me bancado años instalando cosa por cosa...
+Hasta que automatizó todo y ahora programo más tranquilo.
 
-▶ Un comando = TODO listo
-▶ Memoria persistente
-▶ 100+ skills configurados
-▶ Redux Toolkit
-▶ Siempre actualizado
-
-1 repo. 1 install. Tu stack completo.
+1 repo. 1 install. Tu ambiente listo.
 
 Link en comentarios ⬇️
 
@@ -24,28 +23,20 @@ Link en comentarios ⬇️
 
 ---
 
-## OPCIÓN 2 - medio
+## OPCIÓN 2 - medio (ENFOQUE: calidad de vida)
 
-🧠 Por años perdí horas configurando mi entorno de desarrollo...
+🛠️ Mi entorno de desarrollo ahora me hace programar mejor.
 
-OpenCode, Engram, skills, workflows, documentación...
+No es que antes no funcionaba - funcionaba.
+Pero perder tiempo configurando, buscando docs, instalando skills uno por uno... eso me sacaba energía.
 
-Hasta que decidí automatizar TODO.
+Ahora con 1 comando tengo:
+✅ Todo mi stack configurado
+✅ Memoria persistente
+✅ Skills unificados
+✅ Siempre actualizado
 
-Hoy les comparto MaxPowerDev WorkStyle:
-
-✅ Un comando instala todo
-✅ Memoria persistente (el AI recuerda decisiones)
-✅ 100+ skills para React, Angular, Next.js, Prisma...
-✅ Redux Toolkit configurado
-✅ Workflow SDD para features complejas
-✅ Actualizable con un comando
-
-La idea es simple: un solo repositorio con tu configuración completa, lista para usar en cualquier proyecto.
-
-No más buscar cómo configurar cada cosa. No más skills desparramados.
-
-Un repo = tu stack completo.
+La diferencia? Ahora tengo más energía para lo importante: programar.
 
 Link en comentarios 👇
 
@@ -53,63 +44,55 @@ Link en comentarios 👇
 
 ---
 
-## OPCIÓN 3 - largo
+## OPCIÓN 3 - largo (ENFOQUE: workflow personalizado)
 
-🚀 Por años instalé herramientas de desarrollo una por una...
+💡 Mi forma de trabajar, replicada automáticamente.
 
-OpenCode, Engram, skills para React, Angular, Next.js, Prisma, Playwright, configuración de memoria, workflows...
-
-HORAS de setup cada vez que arrancaba un proyecto nuevo.
+Cada proyecto nuevo era lo mismo:
+- Instalar tools
+- Configurar memoria
+- Agregar skills
+- Buscar cómo configurar lo que necesito
 
 Hasta que creé MaxPowerDev WorkStyle.
 
 ---
 
-💡 LA IDEA
+🎯 QUÉ CAMBIÓ
 
-Un solo repositorio que te instala TODO:
-
-• 🧠 Memoria persistente - el AI recuerda decisiones entre sesiones
-• 🛠 100+ skills - patterns curados para las mejores herramientas
-• ⚛️ Redux Toolkit - state management listo para React
-• 🔄 Flujo SDD - Spec-Driven Development para features complejas
-• 📋 Tu guía de trabajo - se aplica automáticamente
-
----
-
-🎯 EL VALOR
-
-| Sin esto | Con esto |
-|----------|-----------|
-| Horas installando + configurando | 1 comando = TODO listo |
-| Skills en 50 lugares distintos | 100+ skills unificados |
-| Siempre desactualizado | Actualizable con 1 comando |
+| Antes | Ahora |
+|-------|-------|
+| Horas de setup | 1 comando y listo |
+| Skills en todos lados | 100+ unificados |
+| Config manual cada vez | Automático |
+| Desactualizado | Actualizable con 1 comando |
 
 ---
 
-📦 CÓMO FUNCIONA
+📦 QUÉ INCLUYE
+
+• 🧠 Memoria persistente
+• 🛠 100+ skills para React, Angular, Next.js, Prisma...
+• ⚛️ Redux Toolkit
+• 🔄 Flujo SDD
+• 📋 Mi guía de trabajo aplicada
+
+---
+
+🖥️ CÓMO FUNCIONA
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash
 ```
 
-Eso es todo. Tu entorno de desarrollo completo, listo para laburar.
+Eso es todo. Tu entorno, listo para programar.
 
 ---
 
-🤖 COMPATIBLE CON 10+ AGENTS
+🤖 FUNCIONA CON
 
-Claude Code, OpenCode, Cursor, Windsurf, Gemini CLI, Codex, y más.
-
-Usá el que ya tenés. Esta config funciona con todos.
-
----
-
-🔄 ACTUALIZABLE
-
-Mismo comando = últimas tecnologías y mejoras.
-
-Siempre a la vanguardia sin esfuerzo.
+Claude Code, OpenCode, Cursor, Windsurf, Gemini CLI, Codex...
+El que usés ya está cubierto.
 
 ---
 
@@ -119,7 +102,7 @@ Repo: https://github.com/MaximilianoAcri/maxpowerdev-workstyle
 
 Si te sirve, dale una ⭐ y compartilo!
 
-#Developer #Productivity #OpenSource #Coding #React #Angular #NextJS #Tools
+#Developer #Productivity #OpenSource #Coding #React #Angular #NextJS
 
 ---
 
