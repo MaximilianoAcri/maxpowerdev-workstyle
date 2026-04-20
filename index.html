@@ -3,782 +3,447 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MaxPowerDev WorkStyle | Mario Stack 64</title>
-  <meta name="description" content="Tu stack de desarrollo gaming. Un repo = todo listo. Like a power-up para tu desarrollo.">
+  <title>MaxPowerDev WorkStyle | Tu stack de desarrollo completo</title>
+  <meta name="description" content="Un solo repo te instala todo el stack de desarrollo. Memoria, 100+ skills, Redux Toolkit, y las mejores herramientas configuadas. Actualizable con un comando.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --bg: #000000;
-      --bg-dark: #0a0a0a;
-      --n64-gray: #7c7c7c;
-      --n64-light: #b8b8b8;
-      --mario-red: #e70011;
-      --mario-red-dark: #b80000;
-      --coin-gold: #ffd700;
-      --coin-gold-light: #ffec8b;
-      --mario-green: #00a800;
-      --mario-green-light: #00e700;
-      --mario-blue: #0050e0;
-      --power-star: #ffff00;
-      --text: #ffffff;
-      --text-dim: #b8b8b8;
-      --pixel-border: #444444;
+      --bg: #030304;
+      --surface: #09090b;
+      --surface-elevated: #111114;
+      --surface-hover: #18181c;
+      --border: #27272a;
+      --border-light: #3f3f46;
+      --text: #fafafa;
+      --text-dim: #a1a1aa;
+      --text-dimmer: #71717a;
+      --cyan: #22d3ee;
+      --cyan-glow: #22d3ee33;
+      --violet: #a78bfa;
+      --pink: #f472b6;
+      --emerald: #34d399;
+      --amber: #fbbf24;
+      --gradient-main: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #f472b6 100%);
+      --gradient-card: linear-gradient(145deg, #111114 0%, #09090b 100%);
     }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     
-    /* PIXEL FONT */
     body {
-      font-family: 'VT323', 'Press Start 2P', monospace;
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      line-height: 1.4;
-      font-size: 24px;
-      image-rendering: pixelated;
+      line-height: 1.6;
     }
     
-    /* N64 STYLE BACKGROUND */
-    .bg-canvas {
-      position: fixed;
-      inset: 0;
-      background: 
-        radial-gradient(ellipse at 50% 0%, var(--mario-red) 0%, transparent 50%),
-        radial-gradient(ellipse at 100% 100%, var(--mario-blue) 0%, transparent 40%),
-        radial-gradient(ellipse at 0% 100%, var(--mario-green) 0%, transparent 40%),
-        linear-gradient(180deg, #000 0%, #0d0d1a 100%);
-      z-index: 0;
+    .bg-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    
+    .bg-gradient {
+      position: absolute;
+      width: 1000px;
+      height: 1000px;
+      border-radius: 50%;
+      filter: blur(150px);
+      opacity: 0.3;
+      animation: float 30s ease-in-out infinite;
     }
+    
+    .bg-gradient-1 { top: -30%; left: -20%; background: var(--cyan); }
+    .bg-gradient-2 { bottom: -30%; right: -20%; background: var(--violet); animation-delay: -15s; }
+    .bg-gradient-3 { top: 40%; left: 60%; background: var(--pink); opacity: 0.15; animation-delay: -7s; }
     
     .bg-grid {
       position: absolute;
       inset: 0;
-      background-image: 
-        linear-gradient(var(--pixel-border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--pixel-border) 1px, transparent 1px);
-      background-size: 32px 32px;
-      opacity: 0.3;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.15;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
     }
     
-    .stars {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        radial-gradient(2px 2px at 100px 50px, var(--coin-gold), transparent),
-        radial-gradient(2px 2px at 300px 150px, var(--text), transparent),
-        radial-gradient(2px 2px at 500px 80px, var(--coin-gold), transparent),
-        radial-gradient(2px 2px at 700px 200px, var(--text), transparent),
-        radial-gradient(2px 2px at 200px 300px, var(--coin-gold), transparent),
-        radial-gradient(2px 2px at 600px 350px, var(--text), transparent);
-      animation: twinkle 2s infinite;
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(50px, -50px) scale(1.05); }
+      66% { transform: translate(-40px, 40px) scale(0.98); }
     }
     
-    @keyframes twinkle {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
+    .container { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
     
-    .container { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
+    .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3.5rem; }
     
-    /* PIXEL NAV */
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 3rem;
-      border-bottom: 4px solid var(--pixel-border);
-      padding-bottom: 1rem;
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 18px;
-      font-family: 'Press Start 2P', monospace;
-    }
+    .logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 600; font-size: 1.25rem; }
     
     .logo-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--mario-red), var(--mario-red-dark));
-      border: 4px solid var(--text);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      animation: bounce 0.5s infinite alternate;
+      width: 42px; height: 42px;
+      background: var(--gradient-main);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; box-shadow: 0 0 35px var(--cyan-glow);
     }
     
-    @keyframes bounce {
-      from { transform: translateY(0); }
-      to { transform: translateY(-4px); }
-    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.9375rem; }
+    .nav-links a:hover { color: var(--text); }
     
-    .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a {
-      color: var(--text-dim);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--coin-gold); }
+    .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 5rem; }
+    .hero-content { max-width: 520px; }
     
-    /* HERO */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2rem;
-      align-items: center;
-      margin-bottom: 4rem;
-      min-height: 400px;
-    }
-    
-    .hero-content { max-width: 500px; }
-    
-    .badges {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-    }
+    .badges { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-bottom: 1.5rem; }
     
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--bg-dark);
-      border: 2px solid var(--pixel-border);
-      padding: 0.5rem 0.75rem;
-      font-size: 12px;
-      color: var(--text-dim);
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      background: var(--surface-elevated); border: 1px solid var(--border);
+      padding: 0.375rem 0.75rem; border-radius: 16px;
+      font-size: 0.75rem; color: var(--text-dim);
     }
     
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--coin-gold);
-      animation: blink 1s infinite;
-    }
+    .badge-dot { width: 6px; height: 6px; background: var(--emerald); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
+    h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 1.25rem; }
+    h1 .gradient { background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     
-    h1 {
-      font-size: 28px;
-      font-family: 'Press Start 2P', monospace;
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-      text-shadow: 4px 4px 0 var(--mario-red);
-    }
+    .hero p { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 2rem; line-height: 1.7; }
     
-    h1 .gradient {
-      background: linear-gradient(180deg, var(--coin-gold) 0%, var(--mario-red) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    .hero p {
-      font-size: 20px;
-      color: var(--text-dim);
-      margin-bottom: 1.5rem;
-    }
-    
-    .hero p strong {
-      color: var(--coin-gold);
-    }
-    
-    /* PIXEL BUTTONS */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 12px;
-      text-decoration: none;
-      transition: transform 0.1s;
-      border: 4px solid var(--text);
-      cursor: pointer;
-    }
-    
-    .btn-primary {
-      background: var(--mario-red);
-      color: var(--text);
-      box-shadow: 6px 6px 0 var(--mario-red-dark);
-    }
-    
-    .btn-primary:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 4px 4px 0 var(--mario-red-dark);
-    }
-    
-    .btn-secondary {
-      background: var(--n64-gray);
-      color: var(--text);
-      box-shadow: 6px 6px 0 var(--bg-dark);
-    }
-    
-    .btn-secondary:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 4px 4px 0 var(--bg-dark);
-    }
+    .hero p strong { color: var(--text); }
     
     .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
     
-    /* HERO IMAGE */
-    .hero-image {
-      position: relative;
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.875rem 1.5rem; border-radius: 16px;
+      font-weight: 600; font-size: 1rem; text-decoration: none;
+      transition: all 0.25s; border: none; font-family: inherit;
     }
+    
+    .btn-primary { background: var(--gradient-main); color: #000; box-shadow: 0 4px 28px var(--cyan-glow); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 40px var(--cyan-glow); }
+    .btn-secondary { background: var(--surface-elevated); border: 1px solid var(--border); color: var(--text); }
+    .btn-secondary:hover { background: var(--surface-hover); border-color: var(--border-light); }
+    
+    .hero-image { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     
     .hero-image img {
-      width: 250px;
-      height: 250px;
-      border: 4px solid var(--text);
-      box-shadow: 8px 8px 0 var(--pixel-border);
-      image-rendering: pixelated;
+      width: 300px; height: 300px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 0 60px var(--cyan-glow);
+      border: 3px solid var(--surface-elevated);
     }
     
-    .power-star {
-      position: absolute;
-      font-size: 40px;
-      animation: spin 2s infinite linear;
-      top: -20px;
-      right: -20px;
+    .hero-image::before {
+      content: ''; position: absolute; inset: -30px;
+      background: var(--gradient-main);
+      border-radius: 16px;
+      opacity: 0.2; filter: blur(50px); z-index: -1;
     }
     
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+    .founder-label { margin-top: 1rem; font-size: 0.875rem; color: var(--text-dimmer); text-align: center; }
     
-    /* INSTALL BLOCK */
-    .install-block {
-      background: var(--bg-dark);
-      border: 4px solid var(--coin-gold);
-      padding: 1.5rem;
-      margin-bottom: 4rem;
-      text-align: center;
-      box-shadow: 8px 8px 0 var(--pixel-border);
-    }
+    .install-block { background: var(--gradient-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 4rem; text-align: center; }
+    .install-label { font-size: 0.8125rem; font-weight: 500; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+    .install-label span { color: var(--cyan); }
+    .install-command { font-family: 'JetBrains Mono', monospace; font-size: 1.125rem; background: var(--surface); padding: 1.25rem 1.75rem; border-radius: 16px; display: inline-block; }
+    .install-command .prompt { color: var(--emerald); }
+    .install-command .cmd { color: var(--cyan); }
+    .install-note { margin-top: 0.875rem; font-size: 0.8125rem; color: var(--text-dimmer); }
     
-    .install-label {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 12px;
-      color: var(--coin-gold);
-      margin-bottom: 1rem;
-    }
+    .section-title { text-align: center; font-size: 1.75rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .section-subtitle { text-align: center; color: var(--text-dim); margin-bottom: 2.5rem; }
     
-    .install-command {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 14px;
-      background: var(--bg);
-      padding: 1rem 1.5rem;
-      border: 2px solid var(--pixel-border);
-      display: inline-block;
-    }
+    .agents-section { margin-bottom: 5rem; }
+    .agents-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+    .agent-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; text-align: center; transition: all 0.3s; }
+    .agent-card:hover { transform: translateY(-6px); border-color: var(--cyan); box-shadow: 0 8px 30px var(--cyan-glow); }
+    .agent-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .agent-name { font-weight: 600; font-size: 0.9375rem; }
     
-    .install-command .prompt { color: var(--coin-gold); }
-    .install-command .cmd { color: var(--mario-green); }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 5rem; }
+    .feature-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; transition: all 0.3s; }
+    .feature-card:hover { border-color: var(--cyan); transform: translateY(-4px); }
+    .feature-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .feature-card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .feature-card p { font-size: 0.9375rem; color: var(--text-dim); line-height: 1.7; }
     
-    .install-note {
-      margin-top: 0.75rem;
-      font-size: 16px;
-      color: var(--text-dim);
-    }
+    .what-it-does { margin-bottom: 5rem; padding: 2.5rem; background: var(--surface-elevated); border-radius: 16px; }
     
-    /* SECTION TITLES */
-    .section-title {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 16px;
-      text-align: center;
-      margin-bottom: 0.5rem;
-      color: var(--coin-gold);
-    }
-    
-    .section-subtitle {
-      text-align: center;
-      color: var(--text-dim);
-      margin-bottom: 2rem;
-    }
-    
-    /* AGENTS GRID */
-    .agents-section { margin-bottom: 4rem; }
-    
-    .agents-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
-    }
-    
-    .agent-card {
-      background: var(--bg-dark);
-      border: 4px solid var(--pixel-border);
-      padding: 1rem;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-    
-    .agent-card:hover {
-      transform: translate(4px, 4px);
-      border-color: var(--coin-gold);
-    }
-    
-    .agent-icon { font-size: 32px; margin-bottom: 0.5rem; }
-    
-    .agent-name {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 10px;
-    }
-    
-    /* FEATURES */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-bottom: 4rem;
-    }
-    
-    .feature-card {
-      background: var(--bg-dark);
-      border: 4px solid var(--pixel-border);
-      padding: 1.5rem;
-    }
-    
-    .feature-card:hover {
-      border-color: var(--mario-green);
-    }
-    
-    .feature-icon { font-size: 28px; margin-bottom: 0.75rem; }
-    
-    .feature-card h3 {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 12px;
-      margin-bottom: 0.5rem;
-    }
-    
-    .feature-card p {
-      font-size: 18px;
-      color: var(--text-dim);
-    }
-    
-    /* WHAT IT DOES */
-    .what-it-does {
-      margin-bottom: 4rem;
-      padding: 2rem;
-      background: var(--bg-dark);
-      border: 4px solid var(--mario-red);
-    }
-    
-    .what-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
+    .what-it-does-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 1.5rem; }
     
     .what-item {
-      background: var(--bg);
-      border: 4px solid var(--pixel-border);
-      padding: 1rem;
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 1.5rem;
     }
     
-    .what-item-icon {
-      font-size: 32px;
-      margin-bottom: 0.5rem;
-    }
+    .what-item-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .what-item h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .what-item p { font-size: 0.875rem; color: var(--text-dim); }
     
-    .what-item h4 {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 12px;
-      margin-bottom: 0.5rem;
-      color: var(--coin-gold);
-    }
+    .install-methods { margin-bottom: 5rem; padding: 2.5rem; background: var(--surface-elevated); border-radius: 16px; }
+    .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+    .method-card { background: var(--surface); border-radius: 16px; padding: 1.5rem; }
+    .method-card h4 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.625rem; color: var(--cyan); }
+    .method-card code { font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; color: var(--text-dim); word-break: break-all; display: block; }
     
-    .what-item p { font-size: 18px; color: var(--text-dim); }
+    .skills-section { margin-bottom: 5rem; padding: 2.5rem; background: var(--surface-elevated); border-radius: 16px; }
+    .skills-cloud { display: flex; flex-wrap: wrap; gap: 0.625rem; justify-content: center; }
+    .skill-tag { background: var(--surface); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 16px; font-size: 0.8125rem; color: var(--text-dim); }
+    .skill-tag:hover { border-color: var(--cyan); color: var(--text); }
     
-    /* INSTALL METHODS */
-    .install-methods {
-      margin-bottom: 4rem;
-      padding: 2rem;
-      background: var(--bg-dark);
-      border: 4px solid var(--mario-blue);
-    }
+    .update-section { margin-bottom: 5rem; padding: 2.5rem; background: var(--gradient-card); border: 1px solid var(--emerald); border-radius: 16px; text-align: center; }
+    .update-section h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .update-section p { color: var(--text-dim); margin-bottom: 1.5rem; }
+    .update-command { font-family: 'JetBrains Mono', monospace; background: var(--surface); padding: 1rem 1.5rem; border-radius: 16px; display: inline-block; }
+    .update-command .prompt { color: var(--emerald); }
+    .update-command .cmd { color: var(--emerald); }
     
-    .method-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    
-    .method-card {
-      background: var(--bg);
-      border: 4px solid var(--pixel-border);
-      padding: 1rem;
-    }
-    
-    .method-card h4 {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 10px;
-      color: var(--mario-blue);
-      margin-bottom: 0.5rem;
-    }
-    
-    .method-card code {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 10px;
-      color: var(--text-dim);
-      word-break: break-all;
-      display: block;
-    }
-    
-    /* SKILLS */
-    .skills-section {
-      margin-bottom: 4rem;
-      padding: 2rem;
-      background: var(--bg-dark);
-      border: 4px solid var(--mario-green);
-    }
-    
-    .skills-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-    }
-    
-    .skill-tag {
-      background: var(--bg);
-      border: 2px solid var(--pixel-border);
-      padding: 0.5rem 0.75rem;
-      font-size: 14px;
-    }
-    
-    .skill-tag:hover {
-      border-color: var(--coin-gold);
-      color: var(--coin-gold);
-    }
-    
-    /* UPDATE SECTION */
-    .update-section {
-      margin-bottom: 4rem;
-      padding: 2rem;
-      background: var(--bg-dark);
-      border: 4px solid var(--coin-gold);
-      text-align: center;
-    }
-    
-    .update-section h3 {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 16px;
-      margin-bottom: 0.5rem;
-    }
-    
-    .update-section p { color: var(--text-dim); margin-bottom: 1rem; }
-    
-    .update-command {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 14px;
-      background: var(--bg);
-      padding: 1rem 1.5rem;
-      border: 2px solid var(--coin-gold);
-      display: inline-block;
-    }
-    
-    .update-command .prompt { color: var(--coin-gold); }
-    .update-command .cmd { color: var(--coin-gold); }
-    
-    /* STATS */
-    .stats-bar {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-      padding: 2rem 0;
-      border-top: 4px solid var(--pixel-border);
-      border-bottom: 4px solid var(--pixel-border);
-      margin-bottom: 3rem;
-    }
-    
+    .stats-bar { display: flex; justify-content: center; gap: 3.5rem; flex-wrap: wrap; padding: 2.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 4rem; }
     .stat-item { text-align: center; }
+    .stat-value { font-size: 2.5rem; font-weight: 700; background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-label { font-size: 0.875rem; color: var(--text-dim); margin-top: 0.25rem; }
     
-    .stat-value {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 24px;
-      color: var(--coin-gold);
-    }
+    footer { text-align: center; padding-top: 2rem; }
+    .footer-links { display: flex; justify-content: center; gap: 1.75rem; margin-bottom: 1.5rem; }
+    .footer-links a { color: var(--text-dim); text-decoration: none; font-size: 0.9375rem; }
+    .footer-links a:hover { color: var(--text); }
+    footer p { color: var(--text-dimmer); font-size: 0.8125rem; }
     
-    .stat-label {
-      font-size: 14px;
-      color: var(--text-dim);
-    }
-    
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 4px solid var(--pixel-border);
-    }
-    
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .footer-links a {
-      color: var(--text-dim);
-      text-decoration: none;
-      font-size: 14px;
-    }
-    
-    .footer-links a:hover { color: var(--coin-gold); }
-    
-    footer p {
-      color: var(--text-dim);
-      font-size: 14px;
-    }
-    
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero-content { max-width: 100%; }
       .hero-image { order: -1; margin-bottom: 1rem; }
+      .hero-image img { width: 220px; height: 220px; }
       .nav-links { display: none; }
-      .stats-bar { gap: 1.5rem; }
-      h1 { font-size: 20px; }
+      .stats-bar { gap: 2rem; }
+      .install-command { font-size: 0.875rem; }
     }
   </style>
 </head>
 <body>
   <div class="bg-canvas">
+    <div class="bg-gradient bg-gradient-1"></div>
+    <div class="bg-gradient bg-gradient-2"></div>
+    <div class="bg-gradient bg-gradient-3"></div>
     <div class="bg-grid"></div>
-    <div class="stars"></div>
   </div>
   
   <div class="container">
     <nav class="nav">
       <div class="logo">
-        <div class="logo-icon">🍄</div>
-        <span>MAXPOWER</span>
+        <div class="logo-icon">⚡</div>
+        <span>MaxPowerDev</span>
       </div>
       <div class="nav-links">
-        <a href="#what">🍄 QUÉ?</a>
-        <a href="#agents">🎮 AGENTS</a>
-        <a href="#update">🔄 UPDATE</a>
-        <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle">⭐ GIT</a>
+        <a href="#what-it-does">Qué hace?</a>
+        <a href="#agents">Agents</a>
+        <a href="#features">Features</a>
+        <a href="#update">Actualizar</a>
+        <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle">GitHub</a>
       </div>
     </nav>
     
     <header class="hero">
       <div class="hero-content">
         <div class="badges">
-          <div class="badge"><div class="badge-dot"></div>1UP</div>
-          <div class="badge">STACK</div>
-          <div class="badge">POWER-UP</div>
+          <div class="badge"><div class="badge-dot"></div>Un repo</div>
+          <div class="badge">Todo installed</div>
+          <div class="badge">Actualizable</div>
         </div>
         
-        <h1>MARIO STACK<br><span class="gradient">64</span></h1>
+        <h1>Tu stack de desarrollo,<br><span class="gradient">completo y configurado</span></h1>
         
         <p>
-          <strong>UN REPO = TODO READY! 🍄</strong><br>
-          como un power-up pero para tu desarrollo.
-          Memoria, 100+ skills, RTK todo configurado.
+          <strong>Un solo comando te instala TODO de una:</strong> memoria persistente, 100+ skills, Redux Toolkit, y las mejores herramientas del mercado configuradas. Olvidate de instalar una por una.
         </p>
         
         <div class="cta-group">
-          <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle" class="btn btn-primary">⭐ STAR</a>
-          <a href="#install" class="btn btn-secondary">🍄 INSTALL</a>
+          <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle" class="btn btn-primary">⭐ Star on GitHub</a>
+          <a href="#install" class="btn btn-secondary">⚡ Install Now</a>
         </div>
       </div>
       
       <div class="hero-image">
-        <img src="maxsetup.png" alt="MAX">
-        <div class="power-star">⭐</div>
+        <img src="maxsetup.png" alt="Maximiliano Acri">
+        <div class="founder-label">Maximiliano Acri</div>
       </div>
     </header>
     
     <div class="install-block" id="install">
-      <div class="install-label">🍄 INSTALL - START GAME</div>
-      <div class="install-command">
-        <span class="prompt">$</span> <span class="cmd">curl -fsSL ... | bash</span>
-      </div>
-      <div class="install-note">PRESS START TO PLAY!</div>
+      <div class="install-label">⚡ <span>Install</span> - macOS / Linux / WSL</div>
+      <div class="install-command"><span class="prompt">$</span> <span class="cmd">curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</span></div>
+      <div class="install-note">Windows? Usá WSL.</div>
     </div>
     
-    <section class="what-it-does" id="what">
-      <h2 class="section-title">🍄 PARA QUÉ SIRVE?</h2>
-      <p class="section-subtitle">COMO UN POWER-UP PARA TU DEV SKILLS</p>
+    <section class="what-it-does" id="what-it-does">
+      <h2 class="section-title">🤔 Para qué sirve esto?</h2>
+      <p class="section-subtitle">Básicamente, te ahorra horas de configuración</p>
       
-      <div class="what-grid">
+      <div class="what-it-does-grid">
         <div class="what-item">
-          <div class="what-item-icon">😱</div>
-          <h4>SIN STACK</h4>
-          <p>Installar todo uno por uno, configurar, buscar docs... GASTASTE HORAS!</p>
+          <div class="what-item-icon">😩</div>
+          <h4>Sin esto</h4>
+          <p>Tenés que installar OpenCode, configurar Engram, agregar skills uno por uno, configurar Workflow, y buscar cómo hacer que todo funcione junto.</p>
         </div>
         
         <div class="what-item">
-          <div class="what-item-icon">🍄</div>
-          <h4>CON STACK</h4>
-          <p>1 COMANDO y tenés TODO ready! Memoria, skills, workflow = DONE!</p>
+          <div class="what-item-icon">😎</div>
+          <h4>Con esto</h4>
+          <p>Un comando y tenés TODO listo: memoria, skills, guide de trabajo, y las mejores herramientas configuadas automáticamente.</p>
         </div>
         
         <div class="what-item">
           <div class="what-item-icon">🔄</div>
-          <h4>UPDATE</h4>
-          <p>Mismo comando = tecnologías nuevas. Always power-up!</p>
+          <h4>Actualizable</h4>
+          <p>Cada vez que actualizá, tenés las últimas tecnologías y mejoras. Un comando y estás a la vanguardia.</p>
         </div>
         
         <div class="what-item">
           <div class="what-item-icon">🎯</div>
-          <h4>TU ESTILO</h4>
-          <p>Tu forma de laburar, replicada en cada proyecto!</p>
+          <h4>Tu forma de trabajar</h4>
+          <p>Se aplica tu guía de trabajo automáticamente. Tu forma de laburar, replicada en cada proyecto.</p>
         </div>
       </div>
     </section>
     
     <section class="agents-section" id="agents">
-      <h2 class="section-title">🎮 10+ AGENTS READY</h2>
-      <p class="section-subtitle">USE YOUR FAVORITE CHARACTER</p>
+      <h2 class="section-title">🤖 10+ AI Agents Soportados</h2>
+      <p class="section-subtitle">Usá el que ya tenés. Todos funcionan con esta config.</p>
       
       <div class="agents-grid">
-        <div class="agent-card"><div class="agent-icon">🔵</div><div class="agent-name">CLAUDE</div></div>
-        <div class="agent-card"><div class="agent-icon">⚡</div><div class="agent-name">OPEN</div></div>
-        <div class="agent-card"><div class="agent-icon">🌐</div><div class="agent-name">GEMINI</div></div>
-        <div class="agent-card"><div class="agent-icon">💻</div><div class="agent-name">CURSOR</div></div>
-        <div class="agent-card"><div class="agent-icon">🌀</div><div class="agent-name">SURF</div></div>
-        <div class="agent-card"><div class="agent-icon">📦</div><div class="agent-name">CODEX</div></div>
-        <div class="agent-card"><div class="agent-icon">🛸</div><div class="agent-name">COPILOT</div></div>
-        <div class="agent-card"><div class="agent-icon">🚀</div><div class="agent-name">KIRO</div></div>
-        <div class="agent-card"><div class="agent-icon">🐳</div><div class="agent-name">QWEN</div></div>
-        <div class="agent-card"><div class="agent-icon">🎯</div><div class="agent-name">GRAVITY</div></div>
+        <div class="agent-card"><div class="agent-icon">🔵</div><div class="agent-name">Claude Code</div></div>
+        <div class="agent-card"><div class="agent-icon">⚡</div><div class="agent-name">OpenCode</div></div>
+        <div class="agent-card"><div class="agent-icon">🌐</div><div class="agent-name">Gemini CLI</div></div>
+        <div class="agent-card"><div class="agent-icon">💻</div><div class="agent-name">Cursor</div></div>
+        <div class="agent-card"><div class="agent-icon">🌀</div><div class="agent-name">Windsurf</div></div>
+        <div class="agent-card"><div class="agent-icon">📦</div><div class="agent-name">Codex</div></div>
+        <div class="agent-card"><div class="agent-icon">🛸</div><div class="agent-name">VS Copilot</div></div>
+        <div class="agent-card"><div class="agent-icon">🚀</div><div class="agent-name">Kiro IDE</div></div>
+        <div class="agent-card"><div class="agent-icon">🐳</div><div class="agent-name">Qwen</div></div>
+        <div class="agent-card"><div class="agent-icon">🎯</div><div class="agent-name">Antigravity</div></div>
       </div>
     </section>
     
-    <section class="features-grid">
+    <section class="features-grid" id="features">
       <article class="feature-card">
         <div class="feature-icon">🧠</div>
-        <h3>MEMORY</h3>
-        <p>El agent remember todo entre sesiones. Like save game!</p>
+        <h3>Memoria Persistente</h3>
+        <p>El agent recuerda decisiones, bugs y contexto entre sesiones. Sin hacer nada, simplemente funciona.</p>
       </article>
       
       <article class="feature-card">
         <div class="feature-icon">🛠</div>
-        <h3>100+ SKILLS</h3>
-        <p>React, Angular, Prisma, Playwright and more!</p>
+        <h3>100+ Skills</h3>
+        <p>Patterns curados para React, Angular, Next.js, Prisma, Playwright y más.</p>
       </article>
       
       <article class="feature-card">
         <div class="feature-icon">⚛️</div>
-        <h3>RTK</h3>
-        <p>Redux Toolkit ready para React!</p>
-      </article>
-      
-      <article class="feature-card">
-        <div class="feature-icon">📋</div>
-        <h3>WORKSTYLE</h3>
-        <p>Tu guide de trabajo applied automatically!</p>
+        <h3>Redux Toolkit</h3>
+        <p>State management para React configurado. createSlice, RTK Query listos.</p>
       </article>
       
       <article class="feature-card">
         <div class="feature-icon">🔄</div>
-        <h3>SDD FLOW</h3>
-        <p>Spec-Driven Development para features!</p>
+        <h3>Flujo SDD</h3>
+        <p>Spec-Driven Development para features complejas.</p>
+      </article>
+      
+      <article class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Tu Guía de Trabajo</h3>
+        <p>Se aplica automáticamente en cada proyecto.</p>
       </article>
       
       <article class="feature-card">
         <div class="feature-icon">💜</div>
-        <h3>GENTLE-AI</h3>
-        <p>Powered by Gentle-AI ecosystem!</p>
+        <h3>Gentle-AI Powered</h3>
+        <p>Con el ecosistema Gentle-AI. Lo mejor, adaptado.</p>
       </article>
     </section>
     
     <section class="install-methods" id="methods">
-      <h2 class="section-title">📦 MULTI-PLATFORM</h2>
-      <p class="section-subtitle">WORKS ON ANY SYSTEM</p>
+      <h2 class="section-title">📦 Múltiples formas de instalar</h2>
+      <p class="section-subtitle">Funciona en cualquier entorno</p>
       
       <div class="method-grid">
         <div class="method-card">
-          <h4>MAC/LINUX</h4>
-          <code>curl -fsSL ... | bash</code>
+          <h4>macOS / Linux</h4>
+          <code>curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</code>
         </div>
         <div class="method-card">
-          <h4>WSL</h4>
-          <code>curl -fsSL ... | bash</code>
+          <h4>Windows (WSL)</h4>
+          <code>curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</code>
         </div>
         <div class="method-card">
-          <h4>POWERSHELL</h4>
-          <code>irm ... | iex</code>
+          <h4>PowerShell</h4>
+          <code>irm https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | iex</code>
         </div>
         <div class="method-card">
-          <h4>CLONE</h4>
-          <code>git clone ... && ./install</code>
+          <h4>Git Clone</h4>
+          <code>git clone https://github.com/MaximilianoAcri/maxpowerdev-workstyle && cd maxpowerdev-workstyle && ./install.sh</code>
         </div>
       </div>
     </section>
     
     <section class="skills-section">
-      <h2 class="section-title">🛠 100+ SKILLS UNLOCKED</h2>
-      <p class="section-subtitle">ALL POWER-UPS READY!</p>
+      <h2 class="section-title">🛠 100+ Skills disponibles</h2>
+      <p class="section-subtitle">Las mejores herramientas, configuradas y listas</p>
       <div class="skills-cloud">
-        <span class="skill-tag">REACT 19</span>
-        <span class="skill-tag">NEXT 15</span>
-        <span class="skill-tag">ANGULAR</span>
-        <span class="skill-tag">VUE 3</span>
-        <span class="skill-tag">TAILWIND</span>
-        <span class="skill-tag">REDUX</span>
-        <span class="skill-tag">ZUSTAND</span>
-        <span class="skill-tag">PRISMA</span>
-        <span class="skill-tag">SUPABASE</span>
-        <span class="skill-tag">DJANGO</span>
-        <span class="skill-tag">DENO</span>
-        <span class="skill-tag">SPRING</span>
-        <span class="skill-tag">GITHUB</span>
-        <span class="skill-tag">DOCKER</span>
+        <span class="skill-tag">React 19</span>
+        <span class="skill-tag">Next.js 15</span>
+        <span class="skill-tag">Angular</span>
+        <span class="skill-tag">Vue 3</span>
+        <span class="skill-tag">Tailwind 4</span>
+        <span class="skill-tag">Redux Toolkit</span>
+        <span class="skill-tag">Zustand</span>
+        <span class="skill-tag">Prisma</span>
+        <span class="skill-tag">Supabase</span>
+        <span class="skill-tag">Django</span>
+        <span class="skill-tag">Deno</span>
+        <span class="skill-tag">Spring Boot</span>
+        <span class="skill-tag">GitHub Actions</span>
+        <span class="skill-tag">Docker</span>
         <span class="skill-tag">GCP</span>
         <span class="skill-tag">AWS</span>
         <span class="skill-tag">AI SDK</span>
-        <span class="skill-tag">MCP</span>
-        <span class="skill-tag">PLAYWRIGHT</span>
-        <span class="skill-tag">+80</span>
+        <span class="skill-tag">MCP Builder</span>
+        <span class="skill-tag">Playwright</span>
+        <span class="skill-tag">+80 más</span>
       </div>
     </section>
     
     <section class="update-section" id="update">
-      <h3>🔄 KEEP UPDATED!</h3>
-      <p>MISMO COMANDO = NUEVAS TECNOLOGÍAS</p>
+      <h3>🔄 Mantené todo actualizado</h3>
+      <p>Con un comando tenés las últimas tecnologías y mejoras</p>
       <div class="update-command">
-        <span class="prompt">$</span> <span class="cmd">curl -fsSL ... | bash</span>
+        <span class="prompt">$</span> <span class="cmd">curl -fsSL https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/install.sh | bash</span>
       </div>
-      <p style="margin-top: 1rem; font-size: 14px; color: var(--text-dim);">RUN TO GET NEW POWER-UPS!</p>
+      <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-dimmer);">Ejecutá el mismo comando cuando quieras actualizar</p>
     </section>
     
     <section class="stats-bar">
-      <div class="stat-item"><div class="stat-value">10+</div><div class="stat-label">AGENTS</div></div>
-      <div class="stat-item"><div class="stat-value">100+</div><div class="stat-label">SKILLS</div></div>
-      <div class="stat-item"><div class="stat-value">🧠</div><div class="stat-label">MEMORY</div></div>
+      <div class="stat-item"><div class="stat-value">10+</div><div class="stat-label">AI Agents</div></div>
+      <div class="stat-item"><div class="stat-value">100+</div><div class="stat-label">Skills</div></div>
+      <div class="stat-item"><div class="stat-value">🧠</div><div class="stat-label">Memory</div></div>
       <div class="stat-item"><div class="stat-value">⚛️</div><div class="stat-label">RTK</div></div>
-      <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">COIN</div></div>
-      <div class="stat-item"><div class="stat-value">∞</div><div class="stat-label">GAMES</div></div>
+      <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Costo</div></div>
+      <div class="stat-item"><div class="stat-value">∞</div><div class="stat-label">Projects</div></div>
     </section>
     
     <footer>
       <div class="footer-links">
-        <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle">GITHUB</a>
-        <a href="https://github.com/Gentleman-Programming/gentle-ai">GENTLE</a>
-        <a href="https://opencode.ai">DOCS</a>
+        <a href="https://github.com/MaximilianoAcri/maxpowerdev-workstyle">GitHub</a>
+        <a href="https://github.com/Gentleman-Programming/gentle-ai">Gentle-AI</a>
+        <a href="https://github.com/Gentleman-Programming/Gentleman-Skills">Gentle-Skills</a>
+        <a href="https://opencode.ai">Docs</a>
       </div>
-      <p>🎮 MAXPOWER DEV - THANKS FOR PLAYING! 🎮</p>
+      <p>Hecho con ❤️ por MaxPowerDev</p>
     </footer>
   </div>
 </body>
