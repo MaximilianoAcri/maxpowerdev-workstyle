@@ -157,9 +157,10 @@
     .section-title { text-align: center; font-size: 1.75rem; font-weight: 600; margin-bottom: 0.5rem; }
     .section-subtitle { text-align: center; color: var(--text-dim); margin-bottom: 2.5rem; }
     
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 5rem; }
-    .feature-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; transition: all 0.3s; }
-    .feature-card:hover { border-color: var(--cyan); transform: translateY(-4px); }
+    .features-grid { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 5rem; }
+    .feature-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; display: flex; align-items: flex-start; gap: 1rem; }
+    .feature-card:hover { border-color: var(--cyan); }
+    .feature-card-content { flex: 1; }
     .feature-icon { font-size: 1.75rem; margin-bottom: 1rem; }
     .feature-card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
     .feature-card p { font-size: 0.9375rem; color: var(--text-dim); line-height: 1.7; }
@@ -275,51 +276,67 @@
       
       <div class="features-grid">
         <article class="feature-card">
-          <div class="feature-icon">🧠</div>
-          <h3>Memoria Persistente</h3>
-          <p>Engram configurado. El agent recuerda decisiones, bugs y contexto entre sesiones.</p>
+          <div class="feature-icon" style="font-size: 1.5rem;">🧠</div>
+          <div class="feature-card-content">
+            <h3>Memoria Persistente</h3>
+            <p>Engram configurado. El agent recuerda decisiones, bugs y contexto entre sesiones.</p>
+          </div>
         </article>
         
         <article class="feature-card">
-          <div class="feature-icon">🛠</div>
-          <h3>100+ Skills</h3>
-          <p>Patterns curados para React, Next.js, Angular, Prisma, Playwright, Tailwind, AI SDK, y más.</p>
+          <div class="feature-icon" style="font-size: 1.5rem;">🛠</div>
+          <div class="feature-card-content">
+            <h3>100+ Skills</h3>
+            <p>Patterns curados para React, Next.js, Angular, Prisma, Playwright, Tailwind, AI SDK, y más.</p>
+          </div>
         </article>
         
         <article class="feature-card">
-          <div class="feature-icon">🧩</div>
-          <h3>Plugins</h3>
-          <p>RTK, Engram, y Background Agents listos para usar.</p>
+          <div class="feature-icon" style="font-size: 1.5rem;">🧩</div>
+          <div class="feature-card-content">
+            <h3>Plugins</h3>
+            <p>RTK, Engram, y Background Agents listos para usar.</p>
+          </div>
         </article>
         
         <article class="feature-card">
-          <div class="feature-icon">🛠️</div>
-          <h3>Herramientas Base</h3>
-          <p>Git, Node.js, Bun, Python3 instalados si no los tenés.</p>
+          <div class="feature-icon" style="font-size: 1.5rem;">🛠️</div>
+          <div class="feature-card-content">
+            <h3>Herramientas Base</h3>
+            <p>Git, Node.js, Bun, Python3 instalados si no los tenés.</p>
+          </div>
         </article>
         
         <article class="feature-card">
-          <div class="feature-icon">📋</div>
-          <h3>WORKSTYLE</h3>
-          <pT Tu guía de trabajo aplicada automáticamente en cada proyecto.</p>
+          <div class="feature-icon" style="font-size: 1.5rem;">📋</div>
+          <div class="feature-card-content">
+            <h3>WORKSTYLE</h3>
+            <p>Tu guía de trabajo aplicada automáticamente en cada proyecto.</p>
+          </div>
         </article>
         
         <article class="feature-card">
-          <div class="feature-icon">🎨</div>
-          <h3>DESIGN System</h3>
-          <p>Design System completo para mantener consistencia visual.</p>
+          <div class="feature-icon" style="font-size: 1.5rem;">🎨</div>
+          <div class="feature-card-content">
+            <h3>DESIGN System</h3>
+            <p>Design System completo para mantener consistencia visual.</p>
+          </div>
         </article>
         
         <article class="feature-card">
-          <div class="feature-icon">🔄</div>
-          <h3>SDD Workflow</h3>
-          <p>Spec-Driven Development para features complejas.</p>
+          <div class="feature-icon" style="font-size: 1.5rem;">🔄</div>
+          <div class="feature-card-content">
+            <h3>SDD Workflow</h3>
+            <p>Spec-Driven Development para features complejas.</p>
+          </div>
         </article>
         
         <article class="feature-card">
-          <div class="feature-icon">💜</div>
-          <h3>Gentle-AI</h3>
-          <p>Con el ecosistema Gentle-AI integrado.</p>
+          <div class="feature-icon" style="font-size: 1.5rem;">💜</div>
+          <div class="feature-card-content">
+            <h3>Gentle-AI</h3>
+            <p>Con el ecosistema Gentle-AI integrado.</p>
+          </div>
         </article>
       </div>
     </section>
