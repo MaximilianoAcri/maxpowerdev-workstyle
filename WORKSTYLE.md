@@ -53,13 +53,40 @@ cp WORKSTYLE.md ~/.opencode/WORKSTYLE.md
 **Learned**: Gotchas, edge cases
 ```
 
-## Skills principales
+## Skills principales (100+ disponibles)
 
-- **Frontend**: Next.js 15, React 19, React Native, Tailwind 4, Angular
-- **Backend**: Prisma, Supabase, Django DRF, Deno
-- **Testing**: Playwright, Vitest, Pytest
-- **DevOps**: GitHub Actions, GCP, Cron, n8n
-- **AI**: Vercel AI SDK 5, MCP Builder
+### 🖥️ Frontend / UI
+React 19, Next.js 15, Angular (core/forms/performance), Vue 3, Svelte, Solid, Tailwind 4, Astro
+
+### ⚡ State
+Zustand 5, Zod 4, TypeScript strict, Redux Toolkit
+
+### 🖥️ Backend
+Node.js, NestJS, Deno, Bun, Express, tRPC, GraphQL, Django DRF, Spring Boot 3
+
+### 💾 Databases
+Prisma, Supabase, Firebase, MongoDB, PostgreSQL, MySQL, Redis, SQLite
+
+### ☸️ DevOps / Cloud
+Docker, Kubernetes, AWS, GCP, Terraform, GitHub Actions
+
+### 🧪 Testing
+Playwright, Vitest, Jest, Pytest, Go Testing
+
+### 🤖 AI / LLM
+Vercel AI SDK 5, MCP Builder, LangChain, CrewAI, LangGraph, AutoGen, Ollama
+
+### 🔧 automation
+n8n, Make (Integromat), Cron
+
+### 📊 Monitoring
+Sentry, Grafana, Prometheus, ELK Stack
+
+### 🔨 Other Tools
+Puppeteer, Scrapy, WhatsApp API, Webhooks, Bash Scripting
+
+### ⚙️ Workflow / Commands (OpenCode)
+sdd-init, sdd-propose, sdd-spec, sdd-tasks, sdd-apply, sdd-verify, sdd-archive, sdd-design, sdd-explore, sdd-onboard, judgment-day, branch-pr, issue-creation, skill-creator, skill-registry, go-testing
 
 ## Comandos útiles
 
