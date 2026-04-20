@@ -165,9 +165,11 @@
     .feature-card p { font-size: 0.9375rem; color: var(--text-dim); line-height: 1.7; }
     
     .skills-section { margin-bottom: 5rem; padding: 2.5rem; background: var(--surface-elevated); border-radius: 16px; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-    .skill-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-align: center; font-size: 0.875rem; }
+    .skills-grid { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.5rem; }
+    .skill-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.875rem; text-align: left; }
     .skill-item:hover { border-color: var(--cyan); }
+    
+    .skills-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     
     .tools-section { margin-bottom: 5rem; padding: 2.5rem; background: var(--surface-elevated); border-radius: 16px; }
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
@@ -326,42 +328,53 @@
       <h2 class="section-title">🛠 100+ Skills Disponibles</h2>
       <p class="section-subtitle">Los mejores patterns para cada tecnología</p>
       
-      <div class="skills-grid">
+      <div class="skills-row">
         <div class="skill-item">React 19</div>
         <div class="skill-item">Next.js 15</div>
         <div class="skill-item">Angular</div>
         <div class="skill-item">Vue 3</div>
         <div class="skill-item">Svelte</div>
         <div class="skill-item">Tailwind 4</div>
+      </div>
+      <div class="skills-row">
         <div class="skill-item">Zustand 5</div>
         <div class="skill-item">Zod 4</div>
         <div class="skill-item">TypeScript</div>
         <div class="skill-item">Node.js</div>
         <div class="skill-item">NestJS</div>
         <div class="skill-item">Deno</div>
+      </div>
+      <div class="skills-row">
         <div class="skill-item">Bun</div>
         <div class="skill-item">tRPC</div>
         <div class="skill-item">GraphQL</div>
         <div class="skill-item">Prisma</div>
         <div class="skill-item">Supabase</div>
         <div class="skill-item">Firebase</div>
+      </div>
+      <div class="skills-row">
         <div class="skill-item">MongoDB</div>
         <div class="skill-item">PostgreSQL</div>
         <div class="skill-item">Redis</div>
         <div class="skill-item">Docker</div>
         <div class="skill-item">Kubernetes</div>
         <div class="skill-item">AWS</div>
+      </div>
+      <div class="skills-row">
         <div class="skill-item">GCP</div>
         <div class="skill-item">Terraform</div>
         <div class="skill-item">Playwright</div>
         <div class="skill-item">Vitest</div>
         <div class="skill-item">Pytest</div>
         <div class="skill-item">AI SDK 5</div>
+      </div>
+      <div class="skills-row">
         <div class="skill-item">MCP Builder</div>
         <div class="skill-item">LangChain</div>
         <div class="skill-item">CrewAI</div>
         <div class="skill-item">n8n</div>
         <div class="skill-item">Sentry</div>
+        <div class="skill-item">+40 más</div>
         <div class="skill-item">Grafana</div>
         <div class="skill-item">+40 más</div>
       </div>
