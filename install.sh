@@ -66,7 +66,7 @@ log "Estructura creada"
 # ═════════════════════════════════════════════════════════════════════════════
 
 title "Instalando WORKSTYLE..."
-WORKSTYLE_URL="https://raw.githubusercontent.com/maxpowerdev/maxpowerdev-workstyle/main/WORKSTYLE.md"
+WORKSTYLE_URL="https://raw.githubusercontent.com/MaximilianoAcri/maxpowerdev-workstyle/gh-pages/WORKSTYLE.md"
 
 if curl -fsSL "$WORKSTYLE_URL" -o ~/.opencode/WORKSTYLE.md 2>/dev/null; then
     log "WORKSTYLE.md instalado en ~/.opencode/"
@@ -100,6 +100,12 @@ if command -v claude &> /dev/null; then
 fi
 
 if command -v cursor &> /dev/null; then
+    echo "  💻 Cursor - ✓ instalado"
+    AGENTS_FOUND=$((AGENTS_FOUND + 1))
+fi
+
+#Cursor también puede detectarse por su directory (solo si no se detectó antes)
+if [ -z "$(command -v cursor 2>/dev/null)" ] && ([ -f "$HOME/.cursor" ] || [ -d "$HOME/.cursor" ]); then
     echo "  💻 Cursor - ✓ instalado"
     AGENTS_FOUND=$((AGENTS_FOUND + 1))
 fi
